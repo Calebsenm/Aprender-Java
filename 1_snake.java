@@ -6,6 +6,6 @@ import javax.swing.JFrame;
 
 public class snake {
     public static void main(String arg[]){
-
+        System.out.println("Hello word ");
     }
 }
