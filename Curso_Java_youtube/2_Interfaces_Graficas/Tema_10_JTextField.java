@@ -43,6 +43,7 @@ public class Tema_10_JTextField extends JFrame implements ActionListener {
         formulario_1.setVisible(true);
         formulario_1.setResizable(false);
         formulario_1.setLocationRelativeTo(null);
+        
     }
 
 }
