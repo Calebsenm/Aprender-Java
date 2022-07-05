@@ -9,16 +9,17 @@ public class Tema_6_JTextField extends JFrame implements ActionListener{
 
     public Tema_6_JTextField(){
         setLayout(null);
-        label1 = new JLabel();
-        label1.setBounds(30,10,100,30);
+        label1 = new JLabel("Usuario ");
+        label1.setBounds(30,9,100,30);
         add(label1);
 
         tesxtfield1 = new JTextField();
         tesxtfield1.setBounds(30,30,200,30);
         add(tesxtfield1);
+        
 
-        boton1 = new JButton();
-        boton1.setBounds(60,60,100,50);
+        boton1 = new JButton("Dame click");
+        boton1.setBounds(30,60,200,30);
         add(boton1);
 
         boton1.addActionListener(this);
@@ -27,16 +28,23 @@ public class Tema_6_JTextField extends JFrame implements ActionListener{
         
     }
     public void actionPerformed(ActionEvent e){
-        System.out.println(tesxtfield1);
+        if (e.getSource() == boton1){
+
+            // para recuperar el texto 
+            String Texto = tesxtfield1.getText();
+            this.setTitle(Texto); 
+
+        }
+        
     }
     public static void main(String[] args) {
-       Tema_6_JTextField ventana = new Tema_6_JTextField();
+        Tema_6_JTextField ventana = new Tema_6_JTextField();
 
-       ventana.setBounds(0,0,450,300);
-       ventana.setVisible(true);
-       ventana.setResizable(false);
-       ventana.setLocation(null);
-    
+        ventana.setBounds(0,0,450,300);
+        ventana.setVisible(true);
+       
+        ventana.setLocation(null);
+        ventana.setResizable(false);
     }
 
 
