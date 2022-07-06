@@ -1,0 +1,140 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Tema_18_Swing_JRadioButton",
+            "request": "launch",
+            "mainClass": "Tema_18_Swing_JRadioButton",
+            "projectName": "Aprender-Java_59b5b51"
+        },
+        {
+            "type": "java",
+            "name": "Launch Tema_17_JButton_JCheckBox_Acptermi",
+            "request": "launch",
+            "mainClass": "Tema_17_JButton_JCheckBox_Acptermi",
+            "projectName": "Aprender-Java_59b5b51"
+        },
+        {
+            "type": "java",
+            "name": "Launch Tema_16_JCheckBox",
+            "request": "launch",
+            "mainClass": "Tema_16_JCheckBox",
+            "projectName": "Aprender-Java_59b5b51"
+        },
+        {
+            "type": "java",
+            "name": "Launch Tema_15_Programación_Submenus",
+            "request": "launch",
+            "mainClass": "Tema_15_Programación_Submenus",
+            "projectName": "Aprender-Java_59b5b51"
+        },
+        {
+            "type": "java",
+            "name": "Launch Tema_14_JMenuBar_JMenu_JMenuItem",
+            "request": "launch",
+            "mainClass": "Tema_14_JMenuBar_JMenu_JMenuItem",
+            "projectName": "Aprender-Java_59b5b51"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch Tema_10_JTextField",
+            "request": "launch",
+            "mainClass": "Tema_10_JTextField",
+            "projectName": "Aprender-Java_59b5b51"
+        },
+        {
+            "type": "java",
+            "name": "Launch Tema_11_Parse",
+            "request": "launch",
+            "mainClass": "Tema_11_Parse",
+            "projectName": "Aprender-Java_59b5b51"
+        },
+        {
+            "type": "java",
+            "name": "Launch Tema_12_JcomBoBox",
+            "request": "launch",
+            "mainClass": "Tema_12_JcomBoBox",
+            "projectName": "Aprender-Java_59b5b51"
+        },
+        {
+            "type": "java",
+            "name": "Launch Tema_13_Botón_RGB",
+            "request": "launch",
+            "mainClass": "Tema_13_Botón_RGB",
+            "projectName": "Aprender-Java_59b5b51"
+        },
+        {
+            "type": "java",
+            "name": "Launch Tema_1_Interfaces_graficas",
+            "request": "launch",
+            "mainClass": "Tema_1_Interfaces_graficas",
+            "projectName": "Aprender-Java_59b5b51"
+        },
+        {
+            "type": "java",
+            "name": "Launch Tema_2_JFrame",
+            "request": "launch",
+            "mainClass": "Tema_2_JFrame",
+            "projectName": "Aprender-Java_59b5b51"
+        },
+        {
+            "type": "java",
+            "name": "Launch Tema_3_JFrame_nombre",
+            "request": "launch",
+            "mainClass": "Tema_3_JFrame_nombre",
+            "projectName": "Aprender-Java_59b5b51"
+        },
+        {
+            "type": "java",
+            "name": "Launch Tema_4_JFrame_Botones",
+            "request": "launch",
+            "mainClass": "Tema_4_JFrame_Botones",
+            "projectName": "Aprender-Java_59b5b51"
+        },
+        {
+            "type": "java",
+            "name": "Launch Tema_5_JFrame_Boton_interactivo",
+            "request": "launch",
+            "mainClass": "Tema_5_JFrame_Boton_interactivo",
+            "projectName": "Aprender-Java_59b5b51"
+        },
+        {
+            "type": "java",
+            "name": "Launch Tema_6_JTextField",
+            "request": "launch",
+            "mainClass": "Tema_6_JTextField",
+            "projectName": "Aprender-Java_59b5b51"
+        },
+        {
+            "type": "java",
+            "name": "Launch Tema_7_Juego",
+            "request": "launch",
+            "mainClass": "Tema_7_Juego",
+            "projectName": "Aprender-Java_59b5b51"
+        },
+        {
+            "type": "java",
+            "name": "Launch Tema_8_JTextArea",
+            "request": "launch",
+            "mainClass": "Tema_8_JTextArea",
+            "projectName": "Aprender-Java_59b5b51"
+        },
+        {
+            "type": "java",
+            "name": "Launch Tema_9_JScrollPane",
+            "request": "launch",
+            "mainClass": "Tema_9_JScrollPane",
+            "projectName": "Aprender-Java_59b5b51"
+        }
+    ]
+}
