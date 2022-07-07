@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Proyecto_Coca_cola",
+            "request": "launch",
+            "mainClass": "Proyecto_Final.Proyecto_Coca_cola",
+            "projectName": "Aprender-Java_59b5b51"
+        },
+        {
+            "type": "java",
             "name": "Launch Tema_18_Swing_JRadioButton",
             "request": "launch",
             "mainClass": "Tema_18_Swing_JRadioButton",
