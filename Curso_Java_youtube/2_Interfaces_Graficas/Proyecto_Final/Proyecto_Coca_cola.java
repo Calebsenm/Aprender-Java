@@ -9,14 +9,18 @@ public class Proyecto_Coca_cola extends JFrame implements ActionListener {
     private JLabel cocacola_2;
     private JLabel cocacola_3;
     private JLabel cocacola_4;
-    
     private JButton boton1;
-
     private JTextField field_1;
+
+    JFrame frame  = new JFrame();
+    public static String Texto = "";
+
+   
 
     public Proyecto_Coca_cola(){
         setLayout(null);
 
+        cocacola_1  = new JLabel("coca.png");
         
         cocacola_1.setBounds(60,20,100,200);
         add(cocacola_1);
@@ -46,14 +50,30 @@ public class Proyecto_Coca_cola extends JFrame implements ActionListener {
         boton1.addActionListener(this);
 
 
-        setTitle("Bienvenido");    
-        
     }
 
-    public void actionPerformed(ActionEvent e){
 
+    public void actionPerformed(ActionEvent e){
+        int valo = field_1.getText().length();
+        
         if (e.getSource() == boton1){
-            System.out.println("Hello word");
+            if (valo > 0){
+                
+                Texto = field_1.getText();
+                
+                Ventana_1 formulario_1 = new Ventana_1();
+                formulario_1.setBounds(0,0,400,400);
+                formulario_1.setVisible(true);
+                formulario_1.setLocationRelativeTo(null);
+                formulario_1.setResizable(false);
+                // esto es para agregar la nueva pestaña
+                formulario_1.setVisible(true); 
+                this.dispose();
+
+            }else{
+                JOptionPane.showMessageDialog(null, "No sea pendejo ");
+            }
+            
         }
     }
     
