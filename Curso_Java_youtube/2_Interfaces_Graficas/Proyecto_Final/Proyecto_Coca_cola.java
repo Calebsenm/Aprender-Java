@@ -1,5 +1,6 @@
 package Proyecto_Final;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.*;
 import javax.swing.*;
 
@@ -19,14 +20,22 @@ public class Proyecto_Coca_cola extends JFrame implements ActionListener {
 
     public Proyecto_Coca_cola(){
         setLayout(null);
+        setTitle("Vienvenido");
+        // El color de fondo de una imagen 
+        getContentPane().setBackground(Color.RED);
+        // para colocar la imagen 
 
-        cocacola_1  = new JLabel("coca.png");
-        
-        cocacola_1.setBounds(60,20,100,200);
+        setIconImage(new ImageIcon(getClass().getResource("images/coca.png")).getImage());
+
+
+        ImageIcon imagen = new ImageIcon(getClass().getResource("images/coca.png"));
+        cocacola_1  = new JLabel(imagen);
+        cocacola_1.setBounds(10,20,300,200);
         add(cocacola_1);
 
         cocacola_2 = new JLabel("Systema de control Vacacional");
-        cocacola_2.setBounds(60,210,200,40);
+        cocacola_2.setFont(new Font ("Andale Mono",3,15));
+        cocacola_2.setBounds(40,210,300,40);
         cocacola_2.setForeground(Color.WHITE);
         add(cocacola_2);
 
@@ -85,8 +94,7 @@ public class Proyecto_Coca_cola extends JFrame implements ActionListener {
         Formulario.setResizable(false);
         Formulario.setLocationRelativeTo(null);
 
-        // El color de fondo de una imagen 
-        Formulario.getContentPane().setBackground(Color.RED);
+        
 
        
     }

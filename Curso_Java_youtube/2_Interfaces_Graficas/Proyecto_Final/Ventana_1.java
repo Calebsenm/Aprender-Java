@@ -19,9 +19,17 @@ public class Ventana_1 extends JFrame implements ActionListener,ChangeListener{
 
    public Ventana_1() {
       setLayout(null);
+      setTitle("Lisencia de Uso ");
+      
+      setIconImage(new ImageIcon(getClass().getResource("images/coca.png")).getImage());
+
+
       boton_1 = new JButton("Aceptar");
       boton_1.setBounds(30,300,100,30);
       boton_1.addActionListener(this);
+
+      // pata que no este activo
+      boton_1.setEnabled(false);
       add(boton_1);
 
       boton_2 = new JButton("No Acepto");
@@ -31,42 +39,46 @@ public class Ventana_1 extends JFrame implements ActionListener,ChangeListener{
 
       //------------------------------------------------------
       lavel_1 = new JLabel("Terminos y condiciones");
-      lavel_1.setBounds(120,10,200,30);
+      lavel_1.setBounds(215,5,200,30);
+      
+      lavel_1.setForeground(new Color(0,0,0));
       add(lavel_1);
       //--------------------------------------------------
       Proyecto_Coca_cola variable = new Proyecto_Coca_cola();
       String Texto_2 = variable.Texto;
 
       label_2 = new JLabel("Yo " + Texto_2 + " Acepto");
-      label_2.setBounds(40,250,100,50);
+      label_2.setBounds(60,260,200,50);
       add(label_2);
       // ------------------------------------------------------
       checkBox_1 = new JCheckBox();
-      checkBox_1.setBounds(40,250,100,30);
+      checkBox_1.setBounds(30,270,30,30);
       add(checkBox_1);
       checkBox_1.addChangeListener(this);
       //----------------------------------------------------
-      area_1 = new JTextArea();
+      String  hola = "Usted debe complir el tartado del comersio de la ley 12.20";
+      area_1 = new JTextArea(hola);
+      // para que no modifique
+      area_1.setEditable(false);
+  
       eScrollPane_1 = new JScrollPane(area_1);
       eScrollPane_1.setBounds(20,35,350,200);
       add(eScrollPane_1);
       //----------------------------------------------------
-      
-
-
-
    }
 
-    public void actionPerformed(ActionEvent e) {
-
-
+   public void actionPerformed(ActionEvent e) {
       if (e.getSource() == boton_1){
-
          
+         Ventana_2 Ventana2 = new Ventana_2();
+         Ventana2.setBounds(0,0,600,500);
+         Ventana2.setLocationRelativeTo(null);
+         Ventana2.setResizable(false);
+         Ventana2.setVisible(true);
+         this.dispose();
 
        } else if (e.getSource() == boton_2){
-      
-          
+             
         Proyecto_Coca_cola Formulario = new Proyecto_Coca_cola();
         Formulario.setBounds(0,0,340,500);
         Formulario.setVisible(true);
@@ -78,10 +90,22 @@ public class Ventana_1 extends JFrame implements ActionListener,ChangeListener{
 
         this.dispose();
 
+
        
         }
          
     }
+   public void stateChanged(ChangeEvent e) {
+      if (checkBox_1.isSelected() == true){
+         boton_1.setEnabled(true);
+         boton_2.setEnabled(false);
+      } else{
+         boton_1.setEnabled(false);
+         boton_2.setEnabled(true);
+      }
+         
+   }
+
    
    public static void main(String args[]) {
       Ventana_1 formulario_1 = new Ventana_1();
@@ -91,11 +115,8 @@ public class Ventana_1 extends JFrame implements ActionListener,ChangeListener{
       formulario_1.setResizable(false);
    }
 
-   @Override
-   public void stateChanged(ChangeEvent e) {
-      // TODO Auto-generated method stub
-      
-   }
+   
+   
    
   
 }

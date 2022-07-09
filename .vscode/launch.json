@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Ventana_1",
+            "request": "launch",
+            "mainClass": "Proyecto_Final.Ventana_1",
+            "projectName": "Aprender-Java_59b5b51"
+        },
+        {
+            "type": "java",
+            "name": "Launch Tema_1_Interfaces_graficas",
+            "request": "launch",
+            "mainClass": "Proyecto_Final.Tema_1_Interfaces_graficas",
+            "projectName": "Aprender-Java_59b5b51"
+        },
+        {
+            "type": "java",
+            "name": "Launch New_window",
+            "request": "launch",
+            "mainClass": "Proyecto_Final.New_window",
+            "projectName": "Aprender-Java_59b5b51"
+        },
+        {
+            "type": "java",
             "name": "Launch Proyecto_Coca_cola",
             "request": "launch",
             "mainClass": "Proyecto_Final.Proyecto_Coca_cola",
