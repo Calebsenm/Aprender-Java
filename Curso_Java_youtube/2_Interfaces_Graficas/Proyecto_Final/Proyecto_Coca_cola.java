@@ -20,6 +20,7 @@ public class Proyecto_Coca_cola extends JFrame implements ActionListener {
 
     public Proyecto_Coca_cola(){
         setLayout(null);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Vienvenido");
         // El color de fondo de una imagen 
         getContentPane().setBackground(Color.RED);

@@ -44,7 +44,7 @@ public class Ventana_2 extends JFrame implements ActionListener {
     public Ventana_2(){
 
         setLayout(null);
-
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         //----------------------------------------------------------
         ImageIcon imagenes_1 = new ImageIcon(getClass().getResource("images/coca.png"));
     

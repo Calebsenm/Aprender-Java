@@ -21,6 +21,8 @@ public class Ventana_1 extends JFrame implements ActionListener,ChangeListener{
 
    public Ventana_1() {
       setLayout(null);
+      // para cerrar definitivamente el programa con la x
+      setDefaultCloseOperation(EXIT_ON_CLOSE);
       setTitle("Lisencia de Uso ");
       
       setIconImage(new ImageIcon(getClass().getResource("images/coca.png")).getImage());
