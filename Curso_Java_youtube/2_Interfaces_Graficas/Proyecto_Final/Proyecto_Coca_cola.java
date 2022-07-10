@@ -68,7 +68,8 @@ public class Proyecto_Coca_cola extends JFrame implements ActionListener {
         if (e.getSource() == boton1){
             if (valo > 0){
                 
-                Texto = field_1.getText();
+                //trim Borra los espacios
+                Texto = field_1.getText().trim();
                 
                 Ventana_1 formulario_1 = new Ventana_1();
                 formulario_1.setBounds(0,0,400,400);

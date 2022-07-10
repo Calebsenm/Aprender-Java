@@ -11,6 +11,8 @@ public class Ventana_1 extends JFrame implements ActionListener,ChangeListener{
    private JButton boton_2;
    private JLabel lavel_1;
    private JLabel label_2;
+   private JLabel label_3;
+
    private JTextArea area_1;
    private JScrollPane eScrollPane_1;
    private JCheckBox checkBox_1;
@@ -28,7 +30,7 @@ public class Ventana_1 extends JFrame implements ActionListener,ChangeListener{
       boton_1.setBounds(30,300,100,30);
       boton_1.addActionListener(this);
 
-      // pata que no este activo
+      // para que no este activo
       boton_1.setEnabled(false);
       add(boton_1);
 
@@ -50,13 +52,20 @@ public class Ventana_1 extends JFrame implements ActionListener,ChangeListener{
       label_2 = new JLabel("Yo " + Texto_2 + " Acepto");
       label_2.setBounds(60,260,200,50);
       add(label_2);
+      //-------------------------------------------------------
+      ImageIcon imagenes_uwu = new ImageIcon(getClass().getResource("images/coca.png"));
+
+      label_3 = new JLabel (imagenes_uwu);
+      label_3.setBounds(250,260,150,50);
+      add(label_3);
       // ------------------------------------------------------
       checkBox_1 = new JCheckBox();
       checkBox_1.setBounds(30,270,30,30);
       add(checkBox_1);
       checkBox_1.addChangeListener(this);
+      //--------------------------------------------
       //----------------------------------------------------
-      String  hola = "Usted debe complir el tartado del comersio de la ley 12.20";
+      String  hola = "\n \nUsted debe complir el tartado del comersio de la ley 12.20";
       area_1 = new JTextArea(hola);
       // para que no modifique
       area_1.setEditable(false);
@@ -71,7 +80,7 @@ public class Ventana_1 extends JFrame implements ActionListener,ChangeListener{
       if (e.getSource() == boton_1){
          
          Ventana_2 Ventana2 = new Ventana_2();
-         Ventana2.setBounds(0,0,600,500);
+Ventana2.setBounds(0,0,600,500);
          Ventana2.setLocationRelativeTo(null);
          Ventana2.setResizable(false);
          Ventana2.setVisible(true);
@@ -89,12 +98,14 @@ public class Ventana_1 extends JFrame implements ActionListener,ChangeListener{
         Formulario.getContentPane().setBackground(Color.RED);
 
         this.dispose();
+        //una alternativa seria //this.setVisible(false);
+
 
 
        
-        }
+      }
          
-    }
+   }
    public void stateChanged(ChangeEvent e) {
       if (checkBox_1.isSelected() == true){
          boton_1.setEnabled(true);
