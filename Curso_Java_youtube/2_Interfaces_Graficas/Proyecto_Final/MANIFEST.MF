@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Created-By: Caleb Seña
+Main-Class: Proyecto_Coca_cola
+X-COMMENT: Proyecto Java

@@ -1,0 +1,8 @@
+para empaquetar es:
+
+         nombre                  las clases ->                          las imagenes
+jar cvfm Systema.jar manifest.mf Proyecto_Coca_cola Ventana_1 Ventana_2 images/coca.png
+
+
+para constrir
+java -jar Systema.jar
