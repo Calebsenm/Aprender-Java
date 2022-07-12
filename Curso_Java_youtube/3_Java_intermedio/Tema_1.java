@@ -1,4 +1,4 @@
-//cre un programa que pida un una frase y luego la imprima arreves asi
+//cree un programa que pida un una frase y luego la imprima arreves asi
 //hola como estas // satse omoc aloh
 
 import java.util.Scanner;
@@ -9,20 +9,27 @@ public class Tema_1{
 	
 
 		String Palabra = "";
+		int contador = 0;
+
 		Scanner hola = new Scanner(System.in);
-		Palabra = hola.nexLine();
 
-		int contador = hola.length();
+		System.out.print("Imgresa una frace -> ");
+		Palabra = hola.nextLine();
+		contador = Palabra.length();
 
-		String Base[] = new Base [contador -1];
+		String Base[] = new String [contador];
 
-		for(int i = contador -1 ; i == 0;i--){
-			
-			Base[i] = Palabra.subString(i); 
+		int I = 0;
+		String  P = "";
+
+		while(I < contador  ){
+			P = Palabra.substring(I,I+1);
+			Base[I] = P; 
+			I++;
 		}
 
-		for (int o = 0; o < contador -1;o++){
-			System.out.print("-" + Base[o] + "");
+		for (int o = contador -1 ; o >= 0;o--){
+			System.out.print(""+ Base[o] + "");
 		}
 
 
