@@ -17,8 +17,13 @@ public class Clase_Dos {
         // men.Numero_1;
         // men.Metodo_Sen();
 
-        mensaje.set_ValorUno(10);
-        System.out.println(mensaje.get_ValorUno());
+        // mensaje.set_ValorUno(10);
+        // System.out.println(mensaje.get_ValorUno());
+        
+        //No aparecen los numeros
+        mensaje.numeros_logicos();
+        mensaje.numeros_neperianos;
+        mensaje.numers_imaginarios;
         
     }
 }

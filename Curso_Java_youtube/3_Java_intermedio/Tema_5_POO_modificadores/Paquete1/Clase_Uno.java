@@ -14,17 +14,16 @@ public class Clase_Uno {
         // private
         // mensaje.Metodo_Sen;
 
-        mensaje.set_ValorUno(100);
-        System.out.println(mensaje.get_ValorUno());
+        // mensaje.set_ValorUno(100);
+        // System.out.println(mensaje.get_ValorUno());
         
-        
-        
+       
+        mensaje.numeros_neperianos;
+        mensaje.numers_imaginarios;
+        mensaje.numeros_logicos();
 
-        
 
-
-
-        
+               
         
     }
 }
