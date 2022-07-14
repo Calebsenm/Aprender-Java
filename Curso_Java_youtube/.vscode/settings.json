@@ -1,6 +1,8 @@
 {
     "java.project.sourcePaths": [
-        "Lo_basico",
-        "2_Interfaces_Graficas"
+        "3_Java_intermedio/Tema_9_AmbitoVariable",
+        "3_Java_intermedio/Tema_8_POO_Super",
+        "2_Interfaces_Graficas",
+        "3_Java_intermedio/Tema_10_Cajero_Ejercicio"
     ]
 }
