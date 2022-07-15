@@ -2,7 +2,9 @@
     "java.project.sourcePaths": [
         "3_Java_intermedio/Tema_9_AmbitoVariable",
         "3_Java_intermedio/Tema_8_POO_Super",
+        "3_Java_intermedio/Tema_11_Execciones/Division",
+        "3_Java_intermedio/Tema_10_Cajero_Ejercicio",
         "2_Interfaces_Graficas",
-        "3_Java_intermedio/Tema_10_Cajero_Ejercicio"
+        "3_Java_intermedio/Tema_12_Hilos_Threads"
     ]
 }
