@@ -1,71 +1,64 @@
+
 import javax.swing.JOptionPane;
 
 public class Pila {
     
-    private Nodo Ultimo_valor;
-    int tamaño = 0;
+    private Nodo UltimoValorIngresado;
+    int tamano = 0;
     String Lista = "";
-
-
+    
     public Pila(){
-        Ultimo_valor = null;
-        tamaño = 0;
-
+        UltimoValorIngresado = null;
+        tamano = 0;
     }
-
-    // metodo pila vacia
+    
+    //Método para saber cuando la pila esta vacia
     public boolean PilaVacia(){
-        return Ultimo_valor == null;
-
+        return UltimoValorIngresado == null;
     }
-
-    //Metodo para insertar un nodo en la pila
+    
+    //Método para insertar un nodo en la pila
     public void InsertarNodo(int nodo){
-        Nodo nuevo_nodo = new Nodo(nodo);
-        nuevo_nodo.siguiente = Ultimo_valor;
-        Ultimo_valor = nuevo_nodo;
-
-        tamaño++;
-    }
-
-    //Metodo para eliminar un nodo en la lista
+        Nodo nuevo_nocdo = new Nodo(nodo);
+        nuevo_nocdo.siguiente = UltimoValorIngresado;
+        UltimoValorIngresado = nuevo_nocdo;
+        tamano++;
+    }        
+    
+    //Método para eliminar un nodo de la pila
     public int EliminarNodo(){
-        int auxiliar = Ultimo_valor.informacion;
-        Ultimo_valor = Ultimo_valor.siguiente;
-        Ultimo_valor = Ultimo_valor.siguiente;
-        tamaño--;
+        int auxiliar = UltimoValorIngresado.informacion;
+        UltimoValorIngresado = UltimoValorIngresado.siguiente;
+        tamano--;
         return auxiliar;
     }
-
-    //Metodo para conocer el ultimo valor ingresado
-    public int MostarUltimoValorIngresado(){
-        return Ultimo_valor.informacion;
+    
+    //Método para conocer cual es el último valor ingresado
+    public int MostrarUltimoValorIngresado(){
+        return UltimoValorIngresado.informacion;
     }
-
-    // Metodo para conocer el tamaño de la pila
-    public int TamañoPila(){
-        return tamaño;
+    
+    //Método para conocer el tamaño de la Pila
+    public int TamanoPila(){
+        return tamano;
     }
-
-    //metodo para vaciar la pila
+    
+    //Método para vaciar la Pila
     public void VaciarPila(){
-        while(!PilaVacia()){
-            EliminarNodo();
+        while (!PilaVacia()) {
+            EliminarNodo();            
         }
     }
-
-    //metodo para mostral el continido de la pila
-    public void MostrarValor(){
-        Nodo recoriNodo = Ultimo_valor;
     
-        while(recoriNodo != null){
-            Lista += recoriNodo.informacion + "\n";
-            recoriNodo = recoriNodo.siguiente;
+    //Método para mostrar el contenido de la pila
+    public void MostrarValores(){
+        Nodo recorrido = UltimoValorIngresado;
+        
+        while(recorrido != null){
+            Lista += recorrido.informacion + "\n";
+            recorrido = recorrido.siguiente;
         }
-    
-        JOptionPane.showMessageDialog(null,Lista);
+        JOptionPane.showMessageDialog(null, Lista);
         Lista = "";
     }
-
-
 }
