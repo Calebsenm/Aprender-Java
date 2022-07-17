@@ -23,19 +23,41 @@ public class Main {
 
         for (int i  = 0; i < 3; i++){
             for (int j  = 0; j < 3; j++){
-                Matris_3[i][j] = Matris_1[i][j] -  Matris_2[i][j];
+                Matris_3[i][j] = Matris_1[i][j] +  Matris_2[i][j];
             }
            
         }
 
         for (int i = 0; i < 3; i++){
-            System.out.print("["+ Matris_1[i][0] + "]" + "[" + Matris_1[i][1]  +"]" + "[" + Matris_1[i][2]  +"]");
-            System.out.print(" - ");
-            System.out.print("["+ Matris_2[i][0] + "]" + "[" + Matris_2[i][1]  +"]" + "[" + Matris_2[i][2]  +"]");
-            System.out.print(" = ");
-            System.out.print("["+ Matris_3[i][0] + "]" + "[" + Matris_3[i][1]  +"]" + "[" + Matris_3[i][2]  +"]");
-    
+
+            for (int j = 0; j < 3; j++){
+
+               System.out.print("[" + Matris_1[i][j] + "]");
+            }
+                if (i == 1){
+                    // para hacer tabulaciones  /t
+                    System.out.print(" + ");
+                }   else{
+                        System.out.print("   ");
+                    }
+          
+            for (int a = 0; a < 3; a++){
+                System.out.print("[" + Matris_2[i][a] + "]");
+            }
+                if (i == 1){
+                    // para hacer tabulaciones  /t
+                    System.out.print(" = ");
+                }   else{
+                        System.out.print("   ");
+                    }
+            
+
+            for (int b = 0; b < 3; b++){
+                System.out.print("[" + Matris_3[i][b] + "]");
+            }
+
             System.out.println();
+         
         }
 
     
