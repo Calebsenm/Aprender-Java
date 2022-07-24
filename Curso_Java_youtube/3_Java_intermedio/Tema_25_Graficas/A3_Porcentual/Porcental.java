@@ -8,8 +8,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.plaf.ColorUIResource;
 
-public class Barras<Graphics> extends JFrame implements ActionListener{
+public class Porcental<Graphics> extends JFrame implements ActionListener{
 
     private JLabel lavel1;
     private JLabel lavel2;
@@ -24,7 +25,7 @@ public class Barras<Graphics> extends JFrame implements ActionListener{
     
     
     boolean Bandera = false;
-    public Barras(){
+    public Porcental(){
         setLayout(null);
 
         lavel1 = new JLabel("Color favorito");
@@ -69,7 +70,7 @@ public class Barras<Graphics> extends JFrame implements ActionListener{
 
     public static void main(String[] args) {
         
-        Barras ventana = new Barras();
+        Porcental ventana = new Porcental();
         ventana.setVisible(true);
         ventana.setBounds(0,0,396,400);
         ventana.setLocationRelativeTo(null);
@@ -92,7 +93,6 @@ public class Barras<Graphics> extends JFrame implements ActionListener{
         if (Bandera == true ){
 
             String A = field2.getText();
-            System.out.println(A);
             int rojo = (int) Double.parseDouble(A);
 
             String B = field3.getText();
@@ -102,21 +102,35 @@ public class Barras<Graphics> extends JFrame implements ActionListener{
             int azul = (int) Double.parseDouble(C);
             
         
+            int Total = rojo + verde + azul;
+
+            int largo_rojo = rojo * 300 / Total;
+            int largo_verde = verde * 300 / Total;
+            int largo_azul = azul * 300 / Total;
+
+            int porcentaje_R = rojo * 100 / Total;
+            int porcentaje_V = verde * 100 / Total;
+            int porcentaje_A = azul * 100 / Total;
             
+            g.setColor(new Color(255,0,0));
+            g.fillRect(50, 120, largo_rojo, 50);
+            g.setColor(new Color(255,255,255));
+            g.drawString(porcentaje_R + "%",55,140);
+
+            g.setColor(new Color(0,120,0));
+            g.fillRect(50 + largo_rojo, 120, largo_verde, 50);
+            g.setColor(new Color(255,255,255));
+            g.drawString(porcentaje_V + "%",55 + largo_rojo,140);
+
+            g.setColor(new Color(0,0,255));
+            g.fillRect(50 + largo_rojo + largo_verde, 120, largo_azul, 50);
+            g.setColor(new Color(255,255,255));
+            g.drawString(porcentaje_A + "%",55 + largo_rojo + largo_verde,140);
+
+
         }
     }
 
-    public int ValorMayor(int v_rojo, int v_verde,int v_azul){
-        if (v_rojo > v_verde && v_rojo > v_azul ){
-            return v_rojo;
-        
-        }   else if(v_verde > v_azul){
-            return v_verde;
-        
-        }   else{
-            return v_azul;
-
-        }
-    }
+   
 
 }
