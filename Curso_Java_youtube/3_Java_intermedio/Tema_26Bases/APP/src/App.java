@@ -108,7 +108,7 @@ public class App extends JFrame implements ActionListener {
                 
                 // para connectar a la base de datos url usuario pasword
                 //Class.forName("com.mysql.jdbc.Driver");
-                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/practica", "root", "000");
+                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/practica", "root", "");
                 PreparedStatement pat = cn.prepareStatement("insert into alumnos values(?,?,?)");
                  
                 pat.setString(1, "O");
@@ -129,7 +129,7 @@ public class App extends JFrame implements ActionListener {
                 
                 // para connectar a la base de datos url usuario pasword
                 //Class.forName("com.mysql.jdbc.Driver");
-                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/practica", "root", "000");
+                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "");
                 PreparedStatement pat = cn.prepareStatement("select * from alumnos where ID = ?");
                 
                 pat.setString(1,codigo_field.getText().trim());
