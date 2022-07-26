@@ -1,4 +1,4 @@
-Aprendoi a crear una bases de datos desde la terminal
+sudo /etc/init.d/mysql statusAprendoi a crear una bases de datos desde la terminal
 y crear tablas en MSQL desde la consola JAJJAJJAJAJ
 
 // TODO LO APRENDIDO jajajjaja   23/07/2022  9:37 pm estoy muy Felis JAJJAJAJJA 
@@ -7,6 +7,15 @@ para iniciar es: service mysql start
 para detenerse es: service mysql stop
 
 sudo /etc/init.d/mysql start
+
+para ver el estado
+sudo /etc/init.d/mysql status
+
+
+
+// para entrar 
+mysql -u root -p
+
 
 mysql> SHOW DATABASES;
 +--------------------+
@@ -91,4 +100,33 @@ mysql> SELECT * FROM cats;
 |  2 | Cookie  | Casey  | 2013-11-13 |
 |  3 | Charlie | River  | 2016-05-21 |
 +----+---------+--------+------------+
-3 rows in set (0.00 sec)
+3 rows in set (0.00 sec);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//------------------------------------------------
+create database if not exists agenda;
+use agenda;
+create table if not exists agenda(
+    id bigint unsigned not null auto_increment,
+    nombre varchar(255) not null,
+    direccion varchar(255) not null,
+    correo_electronico varchar(255) not null,
+    primary key(id)
+);
