@@ -3,6 +3,10 @@ y crear tablas en MSQL desde la consola JAJJAJJAJAJ
 
 // TODO LO APRENDIDO jajajjaja   23/07/2022  9:37 pm estoy muy Felis JAJJAJAJJA 
 __________________________________________________________________________________
+para iniciar es: service mysql start
+para detenerse es: service mysql stop
+
+sudo /etc/init.d/mysql start
 
 mysql> SHOW DATABASES;
 +--------------------+
