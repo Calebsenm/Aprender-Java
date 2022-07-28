@@ -10,6 +10,13 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Font;
+
 
 
 public class RegistroAlumnos extends javax.swing.JFrame {
@@ -252,8 +259,23 @@ public class RegistroAlumnos extends javax.swing.JFrame {
         try {
             String ruta = System.getProperty("user.home");
             PdfWriter.getInstance(documento,new FileOutputStream(ruta + "/Desktop/Programacion/Aprender-Java/Curso_Java_youtube/3_Java_intermedio/Tema_26_1/src/tema_26_1/pdf/Reporte.pdf"));
+            
+            Image header = Image.getInstance("src/img/img.png");
+            header.scaleToFit(650,1000);
+            header.setAlignment(Chunk.ALIGN_CENTER);
+            
+            Paragraph parrafo = new Paragraph();
+            parrafo.setAlignment(Chunk.ALIGN_CENTER);
+            parrafo.add("Formato creado por caleb XD\n\n");
+            parrafo.setFont(FontFactory.getFont("Tahoma",18,Font.BOLD,BaseColor.BLUE));
+            parrafo.add("Alumnos registrados\n\n");
+            
+            
+            
             documento.open();
-
+            documento.add(header);
+            documento.add(parrafo);
+            
             PdfPTable tabla = new PdfPTable(3);
             tabla.addCell("Codigo");
             tabla.addCell("Nombre del alumno");
@@ -286,7 +308,7 @@ public class RegistroAlumnos extends javax.swing.JFrame {
         } catch (Exception e) {
             //TODO: handle exception
             System.out.print("Error xd " + e );
-        }
+        } 
         
         
         
