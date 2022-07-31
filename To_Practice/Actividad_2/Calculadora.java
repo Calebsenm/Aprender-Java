@@ -30,19 +30,19 @@ public class Calculadora{
 
 			switch (numero){
 				case 1:
-					System.out.println("El la suma de dos numero es " + A + B);
+					System.out.println("El la suma de dos numero es " + (A + B));
 					break;
 				case 2:
 					System.out.println("La resta es "+ (A - B));
 					break;
 				case 3:
-					System.out.println("La Multipliccion es "+ A * B);
+					System.out.println("La Multipliccion es "+ (A * B));
 					break;
 				case 4:
-					System.out.println("La division es " + A / B);
+					System.out.println("La division es " + (A / B));
 					break;
 				case 5:
-					System.out.println("El modolo es "+ A % B);
+					System.out.println("El modolo es "+ (A % B));
 					break;
 				case 6:
 					llave = 1;

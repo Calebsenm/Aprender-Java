@@ -1,4 +1,4 @@
-
+//io 3
 package tema_26_1;
 
 import java.io.FileOutputStream;
