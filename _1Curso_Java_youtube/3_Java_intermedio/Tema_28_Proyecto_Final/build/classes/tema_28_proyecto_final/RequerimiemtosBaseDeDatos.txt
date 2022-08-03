@@ -1,0 +1,27 @@
+nombre 
+bd_ds
+
+tabla
+usuarios 
+
+columnas 9
+
+
+1	id_usuario Primaria	int(11)			No	Ninguna		AUTO_INCREMENT	Cambiar Cambiar	Eliminar Eliminar	
+2	nombre_usuario	varchar(50)	utf8_unicode_ci		No	Ninguna			Cambiar Cambiar	Eliminar Eliminar	
+3	email	varchar(50)	utf8_unicode_ci		No	Ninguna			Cambiar Cambiar	Eliminar Eliminar	
+4	telefono	varchar(50)	utf8_unicode_ci		No	Ninguna			Cambiar Cambiar	Eliminar Eliminar	
+5	username	varchar(50)	utf8_unicode_ci		No	Ninguna			Cambiar Cambiar	Eliminar Eliminar	
+6	password	varchar(50)	utf8_unicode_ci		No	Ninguna			Cambiar Cambiar	Eliminar Eliminar	
+7	tipo_nivel	varchar(50)	utf8_unicode_ci		No	Ninguna			Cambiar Cambiar	Eliminar Eliminar	
+8	estatus	varchar(50)	utf8_unicode_ci		No	Ninguna			Cambiar Cambiar	Eliminar Eliminar	
+9	registrado_por	varchar(50)	utf8_unicode_ci		No	Ninguna			Cambiar Cambiar	Eliminar Eliminar	
+
+
+para la tabla clientes
+
+CREATE TABLE `bd_ds`.`clientes` (`id_cliente` INT NOT NULL AUTO_INCREMENT , `nombre_cliente` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL , `mail_cliente` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL , `tel_cliente` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL , `dir_cliente` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL , `ultima_modificacion` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL , PRIMARY KEY (`id_cliente`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_unicode_ci COMMENT = 'clientes';
+
+
+para tabla equipos
+CREATE TABLE `bd_ds`.`equipos` (`id_equipo` INT NOT NULL AUTO_INCREMENT , `id_cliente` INT NOT NULL , `tipo_equipo` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL , `marca` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL , `modelo` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL , `num_serie` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL , `dia_ingreso` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL , `mes_ingreso` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL , `annio_ingreso` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL , `observaciones` LONGTEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL , `status` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL , `ultima_modificacion` VARCHAR(50) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL , `comentarios_tecnicos` LONGTEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL , `revision_tecnica` VARCHAR(50) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL , PRIMARY KEY (`id_equipo`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_unicode_ci COMMENT = 'papa';
