@@ -3,6 +3,7 @@ import java.awt.event.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 
@@ -50,20 +51,24 @@ public class Main extends JFrame implements ActionListener{
             
 
             try{
+                System.out.println("Connected");
                 
+                String url = "jdbc:mysql://localhost:3306/Pass";
+                String usuario = "root";
+                String passw = "Belac14:)";
+                System.out.println("Connected");
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/Pass","root",""
-                );
+                Connection con = DriverManager.getConnection(url,usuario,passw);
 
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery("select * from users");
                 System.out.println("Connected"); 
             
             } 
-            catch(Exception ei){
-                System.out.println(ei);
+            catch(Exception i){
+                System.out.println(i);
             }
+           
         }
     }
     

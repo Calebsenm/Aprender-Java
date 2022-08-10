@@ -1,0 +1,9 @@
+{
+    
+    // "java.project":[
+    //     "Main.java"
+    // ],
+    "java.project.referencedLibraries": [
+        "App/driver/mysql.jar"
+    ]
+ }

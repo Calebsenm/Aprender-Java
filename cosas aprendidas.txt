@@ -1,1 +1,3 @@
 el dia 25/07/2022 estuve aprendiedo algo de mysql y instalando programas XD 
+:TSInstall css html   para intalar conplementos de atucompletados en nvim con NvChad 
+https://nvchad.github.io/quickstart/post-install
