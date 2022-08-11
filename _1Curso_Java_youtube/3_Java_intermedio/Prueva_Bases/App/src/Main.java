@@ -39,6 +39,26 @@ public class Main extends JFrame implements ActionListener{
         ventana.setVisible(true);
         ventana.setResizable(false);
         ventana.setLocationRelativeTo(null);
+
+
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            System.out.println("Connected");
+            
+            String url = "jdbc:mysql://localhost:3306/Pass";
+            String usuario = "root";
+            String passw = "";
+            
+            Connection con = DriverManager.getConnection(url,usuario,passw);
+
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from users");
+            System.out.println("Connected2"); 
+        
+        } 
+        catch(Exception i){
+            System.out.println(i);
+        }
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -48,26 +68,9 @@ public class Main extends JFrame implements ActionListener{
 
             String user = field1.getText().trim();
             String pass = field2.getText().trim();
-            
+          
 
-            try{
-                System.out.println("Connected");
-                
-                String url = "jdbc:mysql://localhost:3306/Pass";
-                String usuario = "root";
-                String passw = "Belac14:)";
-                System.out.println("Connected");
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection(url,usuario,passw);
-
-                Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("select * from users");
-                System.out.println("Connected"); 
-            
-            } 
-            catch(Exception i){
-                System.out.println(i);
-            }
+           
            
         }
     }
