@@ -82,7 +82,7 @@ public class RegistrarUsuarios extends javax.swing.JFrame {
         getContentPane().add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 110, 30));
 
         jLabel6.setText("Username: ");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 60, 40));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 110, 40));
         getContentPane().add(txt_mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 110, 30));
 
         jLabel7.setText("Pasword: ");
@@ -127,7 +127,7 @@ public class RegistrarUsuarios extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         int permisos_cmb,validacion = 0;
-        String name,mail,telefono,username,pass,permisos_string;
+        String name,mail,telefono,username,pass,permisos_string = null;
         
         mail = txt_mail.getText().trim();
         username = txt_username.getText();
@@ -178,7 +178,49 @@ public class RegistrarUsuarios extends javax.swing.JFrame {
                 cn.close();
                 
             }  else{
+                cn.close();
                 
+                if(validacion == 0){
+                    
+                    try{
+                        Connection cn2 = Conexion.conectar();
+                        String sql1 = "insert into usuarios values (?,?,?,?,?,?,?,?,?)";
+                        PreparedStatement pst2 = cn2.prepareStatement(sql1);
+                        
+                        pst2.setInt(1, 0);
+                        pst2.setString(2, name);
+                        pst2.setString(3, mail);
+                        pst2.setString(4, telefono);
+                        pst2.setString(5, username);
+                        pst2.setString(6, pass);
+                        pst2.setString(7, permisos_string);
+                        pst2.setString(8, "Activo");
+                        pst2.setString(9, user);
+                        
+                        //para ejecutar los cambios
+                        pst2.executeUpdate();
+                        cn2.close();
+                        
+                        Limpiar();
+                        txt_mail.setBackground(Color.green);
+                        txt_username.setBackground(Color.green);
+                        txt_nombre.setBackground(Color.green);
+                        txt_telefono.setBackground(Color.green);
+                        txt_password.setBackground(Color.green);
+                        
+                        JOptionPane.showMessageDialog(null,"Registro exitoso");
+                        this.dispose();
+                        
+                        
+                        
+                    }   catch(SQLException op){
+                            System.err.println("Error al registrar usuarios" + op);
+                        }
+                    
+                }   else{
+                    
+                    JOptionPane.showMessageDialog(null,"Debes llenar todos los campos");
+                }
             }
             
             
@@ -227,6 +269,20 @@ public class RegistrarUsuarios extends javax.swing.JFrame {
                 new RegistrarUsuarios().setVisible(true);
             }
         });
+    }
+    
+    
+    
+    public void Limpiar(){
+        txt_mail.setText("");
+        txt_nombre.setText("");
+        txt_password.setText("");
+        txt_telefono.setText("");
+        txt_username.setText("");
+        
+        //para restaurar el jconbobox
+        cmb_niveles.setSelectedIndex(0);
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
