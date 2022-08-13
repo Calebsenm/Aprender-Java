@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package ventanas;
 
@@ -8,8 +9,8 @@ import java.sql.*;
 import clases.Conexion;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -17,31 +18,29 @@ import javax.swing.JTable;
 import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 
-
 /**
  *
- * @author PAOLA SEÑA
+ * @author Ernesto
  */
 public class GestionarUsuarios extends javax.swing.JFrame {
-
+    
     String user;
     public static String user_update = "";
     DefaultTableModel model = new DefaultTableModel();
-    
+
     /**
      * Creates new form GestionarUsuarios
      */
     public GestionarUsuarios() {
         initComponents();
-        
         user = Login.user;
-        setSize(630,330);
-        setTitle("Usuarios registrados - Sesion de " + user);
+        
+        setSize(630, 330);
+        setTitle("Usuarios registrados - Sesión de " + user);
         setResizable(false);
+        setLocationRelativeTo(null);
         
-        //para evitar que el programs se cierre al cerrar la pantalla
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        
         
         ImageIcon wallpaper = new ImageIcon("src/images/wallpaperPrincipal.jpg");
         Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jLabel_Wallpaper.getWidth(),
@@ -49,65 +48,60 @@ public class GestionarUsuarios extends javax.swing.JFrame {
         jLabel_Wallpaper.setIcon(icono);
         this.repaint();
         
-        
         try {
             Connection cn = Conexion.conectar();
-            String sql3 = "select id_usuario,nombre_usuario,username,tipo_nivel,estatus from usuarios";
-            PreparedStatement pst = cn.prepareStatement(sql3);
+            PreparedStatement pst = cn.prepareStatement(
+                    "select id_usuario, nombre_usuario, username, tipo_nivel, estatus from usuarios");
             
-            //ejecutar la accion a la base de datos
             ResultSet rs = pst.executeQuery();
             
             jTable_usuarios = new JTable(model);
-            //para hacer que la tabla tenga una barra para rodar
             jScrollPane1.setViewportView(jTable_usuarios);
             
-            model.addColumn("Id");
+            model.addColumn(" ");
             model.addColumn("Nombre");
             model.addColumn("Username");
             model.addColumn("Permisos");
-            model.addColumn("Estatus ");
+            model.addColumn("Estatus");
             
-            // para llenar la tabla
-            while(rs.next()){
-                
+            while (rs.next()) {
                 Object[] fila = new Object[5];
                 
-                for(int i = 0; i < 5; i++){
+                for (int i = 0; i < 5; i++) {
                     fila[i] = rs.getObject(i + 1);
                 }
                 model.addRow(fila);
             }
             cn.close();
             
-        }   catch (SQLException e){
-            System.err.print("LLenar tabla. " + e);
-            JOptionPane.showMessageDialog(null, "Error con la imformacion contacte al admistrador !");
+        } catch (SQLException e) {
+            System.err.println("Error al llenar tabla." + e);
+            JOptionPane.showMessageDialog(null, "Error al mostrar información, ¡Contacte al administrador!");
         }
         
-        jTable_usuarios.addMouseListener(new MouseAdapter(){
+        jTable_usuarios.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e){
                 int fila_point = jTable_usuarios.rowAtPoint(e.getPoint());
                 int columna_point = 2;
                 
                 if(fila_point > -1){
-                    user_update = (String)model.getValueAt(fila_point,columna_point);
+                    user_update = (String)model.getValueAt(fila_point, columna_point);
                     InformacionUsuario informacion_usuario = new InformacionUsuario();
                     informacion_usuario.setVisible(true);
-                    
                 }
+                
             }
         });
         
     }
+    
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/icon.png"));
         return retValue;
     }
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -127,8 +121,10 @@ public class GestionarUsuarios extends javax.swing.JFrame {
         setIconImage(getIconImage());
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Usuarios Registrados");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 200, 30));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Usuarios registrados");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
         jTable_usuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -143,10 +139,10 @@ public class GestionarUsuarios extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable_usuarios);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 450, 170));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 630, 180));
 
-        jLabel_footer.setText("Creado Por caleb :D");
-        getContentPane().add(jLabel_footer, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 170, 30));
+        jLabel_footer.setText("Creado por La Geekipedia de Ernesto ®");
+        getContentPane().add(jLabel_footer, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, -1, -1));
         getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 330));
 
         pack();
