@@ -4,17 +4,48 @@
  */
 package ventanas;
 
-/**
- *
- * @author PAOLA SEÑA
- */
+import clases.Conexion;
+import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.sql.*;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
+
 public class RegistrarClientes extends javax.swing.JFrame {
 
+    String user;
     /**
      * Creates new form RegistrarClientes
      */
     public RegistrarClientes() {
         initComponents();
+        
+        user = Login.user;
+        setTitle("Registrar nuevo cliente - secion de " + user);
+        setSize(530,350);
+        setResizable(false);
+        setLocationRelativeTo(null);
+        
+        // para que cierre y no cierre el programa
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        
+        ImageIcon wallpaper = new ImageIcon("src/images/wallpaperPrincipal.jpg");
+        Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jLabel_Wallpaper.getWidth(),
+                jLabel_Wallpaper.getHeight(), Image.SCALE_DEFAULT));
+        jLabel_Wallpaper.setIcon(icono);
+        this.repaint();
+        
+        
+    }
+    
+    
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/icon.png"));
+        return retValue;
     }
 
     /**
@@ -36,6 +67,8 @@ public class RegistrarClientes extends javax.swing.JFrame {
         txt_mail = new javax.swing.JTextField();
         txt_telefono = new javax.swing.JTextField();
         txt_direccion = new javax.swing.JTextField();
+        jButton_ = new javax.swing.JButton();
+        jLabel_footer = new javax.swing.JLabel();
         jLabel_Wallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -69,7 +102,7 @@ public class RegistrarClientes extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText(" Registrar Cliente");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, 170, 20));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 170, 20));
 
         txt_nombre.setBackground(new java.awt.Color(153, 153, 255));
         txt_nombre.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
@@ -98,10 +131,26 @@ public class RegistrarClientes extends javax.swing.JFrame {
         txt_direccion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_direccion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 210, -1));
+
+        jButton_.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add.png"))); // NOI18N
+        jButton_.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton_, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 120, 100));
+
+        jLabel_footer.setText("Creado por La Geekipedia de Ernesto ®");
+        getContentPane().add(jLabel_footer, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, -1));
         getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 525, 356));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ActionPerformed
+
+ 
+    }//GEN-LAST:event_jButton_ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,6 +188,7 @@ public class RegistrarClientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton_;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -146,6 +196,7 @@ public class RegistrarClientes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel_Wallpaper;
+    private javax.swing.JLabel jLabel_footer;
     private javax.swing.JTextField txt_direccion;
     private javax.swing.JTextField txt_mail;
     private javax.swing.JTextField txt_nombre;

@@ -93,6 +93,11 @@ public class Capturista extends javax.swing.JFrame {
         getContentPane().add(jLabel_NombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 180, 40));
 
         jButton_RegisytrarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add.png"))); // NOI18N
+        jButton_RegisytrarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_RegisytrarClienteActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton_RegisytrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 120, 100));
 
         jButton_GestioarClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/informationuser.png"))); // NOI18N
@@ -119,6 +124,16 @@ public class Capturista extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton_RegisytrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegisytrarClienteActionPerformed
+        // TODO add your handling code here:
+        RegistrarClientes registraclientes = new RegistrarClientes();
+        registraclientes.setVisible(true);
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton_RegisytrarClienteActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
