@@ -283,7 +283,8 @@ public class Informacion_Cliente extends javax.swing.JFrame {
 
     private void jButton_RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistrarActionPerformed
 
-        
+        RegistrarEquipo registrar_equipo = new RegistrarEquipo();
+        registrar_equipo.setVisible(true);
 
     }//GEN-LAST:event_jButton_RegistrarActionPerformed
 
