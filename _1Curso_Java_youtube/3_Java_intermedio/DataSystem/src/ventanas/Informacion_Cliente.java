@@ -21,6 +21,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.FileOutputStream;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -28,6 +29,8 @@ import javax.swing.JTable;
 import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 import static ventanas.GestionarClientes.IDcliente_update;
+
+
 
 /**
  *
@@ -272,6 +275,11 @@ public class Informacion_Cliente extends javax.swing.JFrame {
         getContentPane().add(jButton_Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, 210, 35));
 
         jButton_ImprimirReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/impresora.png"))); // NOI18N
+        jButton_ImprimirReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_ImprimirReporteActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton_ImprimirReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, 120, 100));
 
         jLabel_footer.setText("Creado por La Geekipedia de Ernesto ®");
@@ -292,6 +300,114 @@ public class Informacion_Cliente extends javax.swing.JFrame {
 
         
     }//GEN-LAST:event_jButton_ActualizarActionPerformed
+
+    private void jButton_ImprimirReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ImprimirReporteActionPerformed
+        // TODO add your handling code here:
+       Document documento = new Document();
+       
+       try{
+           
+           String ruta = System.getProperty("user.home");
+           PdfWriter.getInstance(documento,new FileOutputStream(ruta + "/Desktop/" + txt_nombre.getText().trim() + ".pdf"));
+                  
+           com.itextpdf.text.Image header = com.itextpdf.text.Image.getInstance("src/images/BannerPDF.jpg");
+           header.scaleToFit(650,1000);
+           header.setAlignment(Chunk.ALIGN_CENTER);
+       
+           
+           Paragraph parrafo = new Paragraph();
+           parrafo.setAlignment(Paragraph.ALIGN_CENTER);
+           parrafo.add("Informacion del cliente. \n \n");
+           parrafo.setFont(FontFactory.getFont("Taoma",14,Font.BOLD,BaseColor.DARK_GRAY));
+           
+           
+           documento.open();
+           documento.add(header);
+           documento.add(parrafo);
+           
+           PdfPTable tablaCliente = new PdfPTable(5);
+           tablaCliente.addCell("ID");
+           tablaCliente.addCell("Nombre");
+           tablaCliente.addCell("email");
+           tablaCliente.addCell("Telefono");
+           tablaCliente.addCell("Direccion");
+           
+           
+           try{
+               Connection cn = Conexion.conectar();
+               PreparedStatement pst = cn.prepareStatement(
+               
+               "select * from clientes where id_cliente = '" +IDcliente_update +"'");
+               
+            ResultSet rs = pst.executeQuery();
+            
+            if(rs.next()){
+                do{
+                    tablaCliente.addCell(rs.getString(1));
+                    tablaCliente.addCell(rs.getString(2));
+                    tablaCliente.addCell(rs.getString(3));
+                    tablaCliente.addCell(rs.getString(4));
+                    tablaCliente.addCell(rs.getString(5));
+                    
+                }while(rs.next());
+                
+                documento.add(tablaCliente);
+            }
+               
+            Paragraph parrafo2 = new Paragraph();
+            parrafo2.setAlignment(Paragraph.ALIGN_CENTER);
+            parrafo2.add("\n \n Equipos registrdos \n \n");
+            parrafo2.setFont(FontFactory.getFont("Tahoma",14,Font.BOLD,BaseColor.DARK_GRAY));
+            
+            documento.add(parrafo2);
+            
+            PdfPTable tablaEquipos = new PdfPTable(4);
+            tablaEquipos.addCell("ID equipo");
+            tablaEquipos.addCell("Tipo");
+            tablaEquipos.addCell("Marca");
+            tablaEquipos.addCell("Estatus");
+            
+            try{
+                
+                Connection cn2 = Conexion.conectar();
+                PreparedStatement pst2 = cn2.prepareStatement(
+                
+                "select id_equipo, tipo_equipo, marca,estatus from equipos where id_cliente = '" + IDcliente_update + "'");
+                        
+                ResultSet rs2 = pst2.executeQuery();
+                
+                if(rs2.next()){
+                    do{
+                        tablaEquipos.addCell(rs2.getString(1));
+                        tablaEquipos.addCell(rs2.getString(2));
+                        tablaEquipos.addCell(rs2.getString(3));
+                        tablaEquipos.addCell(rs2.getString(4));
+                       
+                    
+                    }while(rs2.next());
+                
+                        documento.add(tablaEquipos);
+                    }
+                
+                
+                
+            }   catch(Exception e){
+                    System.err.print("Error XD Base informacion" + e);
+            }
+            
+           }    catch(Exception e){
+               
+               System.err.print("Error XD Base informacion" + e);
+           }
+            
+           
+       }    catch(Exception e){
+            
+       }
+        
+        
+        
+    }//GEN-LAST:event_jButton_ImprimirReporteActionPerformed
 
     /**
      * @param args the command line arguments

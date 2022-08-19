@@ -186,20 +186,19 @@ public class RegistrarEquipo extends javax.swing.JFrame {
 
     private void jButton_RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistrarActionPerformed
 
-        
         int validacion = 0;
-        String tipo_equipo,marca,modelo,num_serie,dia_ingreso,mes_ingreso,annio_ingreso,
-                estatus, observaciones;
+        String tipo_equipo, marca, modelo, num_serie, dia_ingreso, mes_ingreso, annio_ingreso,
+            estatus, observaciones;
         
         tipo_equipo = cmb_tipoequipo.getSelectedItem().toString();
         marca = cmb_marcas.getSelectedItem().toString();
         modelo = txt_modelo.getText().trim();
         num_serie = txt_num_serie.getText().trim();
-        
         observaciones = jTextPane_observaciones.getText();
         estatus = "Nuevo ingreso";
         
         Calendar calendar = Calendar.getInstance();
+        
         dia_ingreso = Integer.toString(calendar.get(Calendar.DATE));
         mes_ingreso = Integer.toString(calendar.get(Calendar.MONTH));
         annio_ingreso = Integer.toString(calendar.get(Calendar.YEAR));
@@ -208,39 +207,36 @@ public class RegistrarEquipo extends javax.swing.JFrame {
             txt_modelo.setBackground(Color.red);
             validacion++;
         }
-        if(modelo.equals("")){
+        if(num_serie.equals("")){
             txt_num_serie.setBackground(Color.red);
             validacion++;
         }
         if(observaciones.equals("")){
-            txt_num_serie.setBackground(Color.red);
-            validacion++;
-        }
-        if(modelo.equals("")){
-            jTextPane_observaciones.setText("Sin observaciones");
-            validacion++;
+            jTextPane_observaciones.setText("Sin observaciones.");
         }
         
-        if(validacion == 0){
-            try{
+        if (validacion == 0) {
+            
+            try {
+                
                 Connection cn = Conexion.conectar();
-                PreparedStatement  pst = cn.prepareStatement(
-                        
-                "insert into equipos values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                PreparedStatement pst = cn.prepareStatement(
+                    "insert into equipos values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                
                 pst.setInt(1,0);
-                pst.setInt(2,IDcliente_update);
-                pst.setString(3,tipo_equipo);
-                pst.setString(4,marca);
-                pst.setString(5,modelo);
-                pst.setString(6,num_serie);
-                pst.setString(7,dia_ingreso);
-                pst.setString(8,mes_ingreso);
-                pst.setString(9,annio_ingreso);
-                pst.setString(10,observaciones);
-                pst.setString(11,estatus);
-                pst.setString(12,user);
-                pst.setString(13,"");
-                pst.setString(14,"");
+                pst.setInt(2, IDcliente_update);
+                pst.setString(3, tipo_equipo);
+                pst.setString(4, marca);
+                pst.setString(5, modelo);
+                pst.setString(6, num_serie);
+                pst.setString(7, dia_ingreso);
+                pst.setString(8, mes_ingreso);
+                pst.setString(9, annio_ingreso);
+                pst.setString(10, observaciones);
+                pst.setString(11, estatus);
+                pst.setString(12, user);
+                pst.setString(13, "");
+                pst.setString(14, "");
                 
                 pst.executeUpdate();
                 cn.close();
@@ -248,20 +244,18 @@ public class RegistrarEquipo extends javax.swing.JFrame {
                 txt_nombreCliente.setBackground(Color.green);
                 txt_modelo.setBackground(Color.green);
                 txt_num_serie.setBackground(Color.green);
-                JOptionPane.showMessageDialog(null,"Registro exitoso");
+                
+                JOptionPane.showMessageDialog(null, "Registro exitoso.");
                 this.dispose();
                 
-            }   catch(SQLException e){
-               System.err.println("Debes de llenar todos los campos" + e);
-               JOptionPane.showMessageDialog(null,"Debes de llenar todos los campos..");
-            
+            } catch (SQLException e) {
+                System.err.println("Error en registrar equipo. " + e);
+                JOptionPane.showMessageDialog(null, "¡¡ERROR al registrar equipo!!, contacte al administrador.");
             }
             
-        }   else{
-            JOptionPane.showMessageDialog(null,"Debes de llenar todos los campos..");
+        } else {
+            JOptionPane.showMessageDialog(null, "Debes de llenar todos los campos.");
         }
-        
-        
         
     }//GEN-LAST:event_jButton_RegistrarActionPerformed
 
