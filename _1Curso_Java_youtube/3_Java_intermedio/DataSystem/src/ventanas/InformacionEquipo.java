@@ -6,11 +6,13 @@
 package ventanas;
 
 import clases.Conexion;
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.sql.*;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 /**
@@ -204,7 +206,7 @@ public class InformacionEquipo extends javax.swing.JFrame {
         jButton_Actualizar.setBackground(new java.awt.Color(153, 153, 255));
         jButton_Actualizar.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         jButton_Actualizar.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_Actualizar.setText("Actualizar cliente");
+        jButton_Actualizar.setText("Actualizar equipo");
         jButton_Actualizar.setBorder(null);
         jButton_Actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,7 +224,70 @@ public class InformacionEquipo extends javax.swing.JFrame {
 
     private void jButton_ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ActualizarActionPerformed
 
+        int validacion  = 0;
+        String tipo_equipo,marca,modelo,num_serie,estatus,observaciones;
         
+        tipo_equipo = cmb_tipoequipo.getSelectedItem().toString();
+        marca = cmb_marcas.getSelectedItem().toString();
+        estatus = cmb_estatus.getSelectedItem().toString();
+        
+        modelo = txt_modelo.getText().trim();
+        num_serie = txt_num_serie.getText().trim();
+        observaciones = jTextPane_observaciones.getText();
+        
+        if(modelo.equals("")){
+            txt_modelo.setBackground(Color.red);
+            validacion++;
+        }
+        
+        if(num_serie.equals("")){
+            txt_num_serie.setBackground(Color.red);
+            validacion++;
+        }
+        
+        if(observaciones.equals("")){
+            jTextPane_observaciones.setText("");
+        }
+        
+        if(validacion == 0){
+            
+            try{
+                Connection cn = Conexion.conectar();
+                PreparedStatement pst = cn.prepareStatement(
+                
+                "update equipos set tipo_equipos = ?,marca = ?,modelo = ?,num_serie = ?,observaciones = ?,estatus = ?,ultima_modificacion = ?"
+                + "where id_equipo = '" + IDequipo + "'");
+                
+                pst.setString(1,tipo_equipo);
+                pst.setString(2,marca);
+                pst.setString(3,modelo);
+                pst.setString(4,num_serie);
+                pst.setString(5,observaciones);
+                pst.setString(6,estatus);
+                pst.setString(7,user); 
+                
+                pst.executeUpdate();
+                cn.close();
+                
+                Limpiar();
+                
+                txt_NombreCliente.setBackground(Color.red);
+                txt_fecha.setBackground(Color.red);
+                txt_modelo.setBackground(Color.red);
+                txt_num_serie.setBackground(Color.red);
+                txt_ultima_Modificacion.setText(user);
+                
+                JOptionPane.showMessageDialog(null,"Actualizacion correcta");
+                this.dispose();
+                
+            }   catch(Exception e){
+                    System.out.println("Error en actualizar equipo");
+                    JOptionPane.showMessageDialog(null,"Error al actualizar equipo contacte al administrador");
+            }
+            
+        }   else{
+                JOptionPane.showMessageDialog(null,"Error al actualizar equipo contacte al administrador");
+        }
         
     }//GEN-LAST:event_jButton_ActualizarActionPerformed
 
@@ -289,4 +354,13 @@ public class InformacionEquipo extends javax.swing.JFrame {
     private javax.swing.JTextField txt_num_serie;
     private javax.swing.JTextField txt_ultima_Modificacion;
     // End of variables declaration//GEN-END:variables
+
+    public void Limpiar(){
+        txt_NombreCliente.setText("");
+        txt_fecha.setText("");
+        txt_modelo.setText("");
+        txt_num_serie.setText("");
+        jTextPane_observaciones.setText("");
+        
+    }
 }
