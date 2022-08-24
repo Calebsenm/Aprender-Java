@@ -44,7 +44,7 @@ public class Tecnico extends javax.swing.JFrame {
         
         setSize(550, 300);
         setResizable(false); 
-        setTitle("Capturista - Sesión de " + user);
+        setTitle("Tecnico - Sesión de " + user);
         setLocationRelativeTo(null);
         
         if (sesion_usuario == 1) {
@@ -69,7 +69,7 @@ public class Tecnico extends javax.swing.JFrame {
                 jLabel_NombreUsuario.setText("Bienvenido " + nombre_usuario);
             }
         } catch (SQLException e) {
-            System.out.println("Error en consultar nombre de capturista.");
+            System.out.println("Error en consultar nombre de tecnico.");
         }
     }
     
@@ -89,9 +89,9 @@ public class Tecnico extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel_NombreUsuario = new javax.swing.JLabel();
-        jButton_RegistrarCliente = new javax.swing.JButton();
-        jButton_GestionarClientes = new javax.swing.JButton();
-        jButton_Imprimir = new javax.swing.JButton();
+        jButton_GestionarEquipos = new javax.swing.JButton();
+        jButton_GraficasEstatus = new javax.swing.JButton();
+        jButton_GraficaMarcas = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -106,40 +106,40 @@ public class Tecnico extends javax.swing.JFrame {
         jLabel_NombreUsuario.setText("jLabel1");
         getContentPane().add(jLabel_NombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jButton_RegistrarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add.png"))); // NOI18N
-        jButton_RegistrarCliente.addActionListener(new java.awt.event.ActionListener() {
+        jButton_GestionarEquipos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/apoyo-tecnico.png"))); // NOI18N
+        jButton_GestionarEquipos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_RegistrarClienteActionPerformed(evt);
+                jButton_GestionarEquiposActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton_RegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 120, 100));
+        getContentPane().add(jButton_GestionarEquipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 120, 100));
 
-        jButton_GestionarClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/informationuser.png"))); // NOI18N
-        jButton_GestionarClientes.addActionListener(new java.awt.event.ActionListener() {
+        jButton_GraficasEstatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/grafica.png"))); // NOI18N
+        jButton_GraficasEstatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_GestionarClientesActionPerformed(evt);
+                jButton_GraficasEstatusActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton_GestionarClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 120, 100));
+        getContentPane().add(jButton_GraficasEstatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 120, 100));
 
-        jButton_Imprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/impresora.png"))); // NOI18N
-        jButton_Imprimir.addActionListener(new java.awt.event.ActionListener() {
+        jButton_GraficaMarcas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/grafica.png"))); // NOI18N
+        jButton_GraficaMarcas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_ImprimirActionPerformed(evt);
+                jButton_GraficaMarcasActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton_Imprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 120, 100));
+        getContentPane().add(jButton_GraficaMarcas, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 120, 100));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Registrar Cliente");
+        jLabel3.setText("Gestion de equipo");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Gestionar Clientes");
+        jLabel4.setText("Grafica de estatus");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Imprimir Clientes");
+        jLabel5.setText("Grafica de marcas");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, -1, -1));
 
         jLabel7.setText("Creado por la Geekipedia de Ernesto ®");
@@ -149,77 +149,21 @@ public class Tecnico extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton_RegistrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistrarClienteActionPerformed
-        
-        RegistrarClientes registrarClientes = new RegistrarClientes();
-        registrarClientes.setVisible(true);
-        
-    }//GEN-LAST:event_jButton_RegistrarClienteActionPerformed
+    private void jButton_GestionarEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GestionarEquiposActionPerformed
 
-    private void jButton_GestionarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GestionarClientesActionPerformed
-        
-        GestionarClientes gestionarClientes = new GestionarClientes();
-        gestionarClientes.setVisible(true);
-        
-    }//GEN-LAST:event_jButton_GestionarClientesActionPerformed
+        GestionarEquipos gestionarEquipos = new GestionarEquipos();
+        gestionarEquipos.setVisible(true);
+    }//GEN-LAST:event_jButton_GestionarEquiposActionPerformed
 
-    private void jButton_ImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ImprimirActionPerformed
-        // TODO add your handling code here:
-        Document documento = new Document();
-        try{
-            String ruta = System.getProperty("user.home");
-            PdfWriter.getInstance(documento,new FileOutputStream(ruta +"/Desktop/ListaClientes.pdf"));
+    private void jButton_GraficasEstatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GraficasEstatusActionPerformed
         
-            com.itextpdf.text.Image header = com.itextpdf.text.Image.getInstance("src/images/BannerPDF.jpg");
-            header.scaleToFit(650,1000);
-            header.setAlignment(Chunk.ALIGN_CENTER);
-            
-            Paragraph parrafo = new Paragraph();
-            parrafo.setAlignment(Paragraph.ALIGN_CENTER);
-            parrafo.add("Lista de clientes \n \n");
-            parrafo.setFont(FontFactory.getFont("Thaoma",18,Font.BOLD,BaseColor.DARK_GRAY));
         
-            documento.open();
-            documento.add(header);
-            documento.add(parrafo);
+    }//GEN-LAST:event_jButton_GraficasEstatusActionPerformed
+
+    private void jButton_GraficaMarcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GraficaMarcasActionPerformed
+       
             
-            PdfPTable tabla = new PdfPTable(5);
-            tabla.addCell("ID");
-            tabla.addCell("Nombre");
-            tabla.addCell("Email");
-            tabla.addCell("Telefono");
-            tabla.addCell("Direccion");
-            
-            try{
-                Connection cn = Conexion.conectar();
-                PreparedStatement pst = cn.prepareStatement("select * from clientes");
-                ResultSet rs = pst.executeQuery();
-                
-                if(rs.next()){
-                    do{
-                        tabla.addCell(rs.getString(1));
-                        tabla.addCell(rs.getString(2));
-                        tabla.addCell(rs.getString(3));
-                        tabla.addCell(rs.getString(4));
-                        tabla.addCell(rs.getString(5));
-                        
-                        
-                    }   while(rs.next());
-                    documento.add(tabla);
-                }
-           
-            }   catch (Exception e){
-                System.err.print("Error al gener lista de clientes " + e);
-                
-            }
-            documento.close();
-            JOptionPane.showMessageDialog(null,"Lista de clientes creada corectamente");
-            
-            
-        }   catch(Exception e){
-            System.err.print("Error al generar pdf " + e);
-        }
-    }//GEN-LAST:event_jButton_ImprimirActionPerformed
+    }//GEN-LAST:event_jButton_GraficaMarcasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,9 +202,9 @@ public class Tecnico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_GestionarClientes;
-    private javax.swing.JButton jButton_Imprimir;
-    private javax.swing.JButton jButton_RegistrarCliente;
+    private javax.swing.JButton jButton_GestionarEquipos;
+    private javax.swing.JButton jButton_GraficaMarcas;
+    private javax.swing.JButton jButton_GraficasEstatus;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
