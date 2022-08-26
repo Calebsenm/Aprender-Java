@@ -158,7 +158,35 @@ public class GestionarEquipos extends javax.swing.JFrame {
 
     private void MostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarActionPerformed
 
-
+        String seleccion = cmb_estatus.getSelectedItem().toString();
+        String query = "";
+        
+        model.setRowCount(0);
+        model.setColumnCount(0);
+        
+        
+        try{
+            Connection cn = Conexion.conectar();
+            
+            if(seleccion.equalsIgnoreCase("Todos")){
+                query = "select id_equipo,tipo_equipo,marca,estatus from equipos";
+                
+            }   else{
+                    query = "select id_equipo,tipo_equipo,marca,estatus from equipos where estatus = '"+ seleccion +"'";
+                }
+            
+            PreparedStatement pst = cn.prepareStatement(query);
+            ResultSet rs = pst.executeQuery();
+            
+            jTable_equipos = new jTable(model);
+            jScrollPane_equipos.setViewport(jTable_equipos);
+            
+            
+        }   catch (Exception e){
+            
+        }
+        
+        
     }//GEN-LAST:event_MostrarActionPerformed
 
     /**
