@@ -8,21 +8,10 @@ package ventanas;
 import clases.Conexion;
 import java.sql.*;
 
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfWriter;
-import com.itextpdf.text.Chunk;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.FontFactory;
-import com.itextpdf.text.Paragraph;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.io.FileOutputStream;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 /**
@@ -44,7 +33,7 @@ public class Tecnico extends javax.swing.JFrame {
         
         setSize(550, 300);
         setResizable(false); 
-        setTitle("Tecnico - Sesión de " + user);
+        setTitle("Técnico - Sesión de " + user);
         setLocationRelativeTo(null);
         
         if (sesion_usuario == 1) {
@@ -69,7 +58,7 @@ public class Tecnico extends javax.swing.JFrame {
                 jLabel_NombreUsuario.setText("Bienvenido " + nombre_usuario);
             }
         } catch (SQLException e) {
-            System.out.println("Error en consultar nombre de tecnico.");
+            System.err.println("Error en consultar nombre de técnico.");
         }
     }
     
@@ -90,7 +79,7 @@ public class Tecnico extends javax.swing.JFrame {
 
         jLabel_NombreUsuario = new javax.swing.JLabel();
         jButton_GestionarEquipos = new javax.swing.JButton();
-        jButton_GraficasEstatus = new javax.swing.JButton();
+        jButton_GraficaEstatus = new javax.swing.JButton();
         jButton_GraficaMarcas = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -99,6 +88,7 @@ public class Tecnico extends javax.swing.JFrame {
         jLabel_Wallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel_NombreUsuario.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
@@ -114,13 +104,13 @@ public class Tecnico extends javax.swing.JFrame {
         });
         getContentPane().add(jButton_GestionarEquipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 120, 100));
 
-        jButton_GraficasEstatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/grafica.png"))); // NOI18N
-        jButton_GraficasEstatus.addActionListener(new java.awt.event.ActionListener() {
+        jButton_GraficaEstatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/grafica.png"))); // NOI18N
+        jButton_GraficaEstatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_GraficasEstatusActionPerformed(evt);
+                jButton_GraficaEstatusActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton_GraficasEstatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 120, 100));
+        getContentPane().add(jButton_GraficaEstatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 120, 100));
 
         jButton_GraficaMarcas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/grafica.png"))); // NOI18N
         jButton_GraficaMarcas.addActionListener(new java.awt.event.ActionListener() {
@@ -131,15 +121,15 @@ public class Tecnico extends javax.swing.JFrame {
         getContentPane().add(jButton_GraficaMarcas, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 120, 100));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Gestion de equipo");
+        jLabel3.setText("Gestión de equipo");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Grafica de estatus");
+        jLabel4.setText("Gráfica de estatus");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Grafica de marcas");
+        jLabel5.setText("Gráfica de marcas");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, -1, -1));
 
         jLabel7.setText("Creado por la Geekipedia de Ernesto ®");
@@ -150,19 +140,25 @@ public class Tecnico extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_GestionarEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GestionarEquiposActionPerformed
-
+        
         GestionarEquipos gestionarEquipos = new GestionarEquipos();
         gestionarEquipos.setVisible(true);
+        
     }//GEN-LAST:event_jButton_GestionarEquiposActionPerformed
 
-    private void jButton_GraficasEstatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GraficasEstatusActionPerformed
+    private void jButton_GraficaEstatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GraficaEstatusActionPerformed
         
+        GraficarEstatus graficarEstatus = new GraficarEstatus();
+        graficarEstatus.setVisible(true);
         
-    }//GEN-LAST:event_jButton_GraficasEstatusActionPerformed
+    }//GEN-LAST:event_jButton_GraficaEstatusActionPerformed
 
     private void jButton_GraficaMarcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GraficaMarcasActionPerformed
+        
+       GraficarMarcas graficarMarcas = new GraficarMarcas();
+       graficarMarcas.setVisible(true);
        
-            
+        
     }//GEN-LAST:event_jButton_GraficaMarcasActionPerformed
 
     /**
@@ -203,8 +199,8 @@ public class Tecnico extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_GestionarEquipos;
+    private javax.swing.JButton jButton_GraficaEstatus;
     private javax.swing.JButton jButton_GraficaMarcas;
-    private javax.swing.JButton jButton_GraficasEstatus;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

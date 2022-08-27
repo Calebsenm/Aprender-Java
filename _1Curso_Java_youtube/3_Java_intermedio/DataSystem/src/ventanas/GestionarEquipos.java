@@ -51,21 +51,15 @@ public class GestionarEquipos extends javax.swing.JFrame {
         try {
             Connection cn = Conexion.conectar();
 
-            System.out.println("Programando XD");
             PreparedStatement pst = cn.prepareStatement(
-                    "select id_equipo,tipo_equipo,marca,estatus from equipos");
-            System.out.println("Programando XD");
-            
-            
-            
+                    "select id_equipo, tipo_equipo, marca, status from equipos");
+
             ResultSet rs = pst.executeQuery();
-            
-          
+
             jTable_equipos = new JTable(model);
-             System.out.println("Programando XD");
             jScrollPane_equipos.setViewportView(jTable_equipos);
-            System.out.println("Programando XD");
-            model.addColumn("Id");
+
+            model.addColumn(" ");
             model.addColumn("Tipo");
             model.addColumn("Marca");
             model.addColumn("Estatus");
@@ -112,6 +106,7 @@ public class GestionarEquipos extends javax.swing.JFrame {
         jLabel_Wallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -135,10 +130,10 @@ public class GestionarEquipos extends javax.swing.JFrame {
         getContentPane().add(jScrollPane_equipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 630, 180));
 
         jLabel_footer.setText("Creado por La Geekipedia de Ernesto ®");
-        getContentPane().add(jLabel_footer, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
+        getContentPane().add(jLabel_footer, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, -1, -1));
 
-        cmb_estatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Nuevo ingreso", "No reparado", "En revision", "Reparado", "Entregado", " " }));
-        getContentPane().add(cmb_estatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, -1, -1));
+        cmb_estatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Nuevo ingreso", "No reparado", "En revision", "Reparado", "Entregado" }));
+        getContentPane().add(cmb_estatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 130, -1));
 
         Mostrar.setBackground(new java.awt.Color(153, 153, 255));
         Mostrar.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
@@ -150,8 +145,8 @@ public class GestionarEquipos extends javax.swing.JFrame {
                 MostrarActionPerformed(evt);
             }
         });
-        getContentPane().add(Mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, 210, 35));
-        getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 350));
+        getContentPane().add(Mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, 210, 35));
+        getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -164,28 +159,40 @@ public class GestionarEquipos extends javax.swing.JFrame {
         model.setRowCount(0);
         model.setColumnCount(0);
         
-        
-        try{
+        try {
             Connection cn = Conexion.conectar();
             
-            if(seleccion.equalsIgnoreCase("Todos")){
-                query = "select id_equipo,tipo_equipo,marca,estatus from equipos";
-                
-            }   else{
-                    query = "select id_equipo,tipo_equipo,marca,estatus from equipos where estatus = '"+ seleccion +"'";
-                }
+            if (seleccion.equalsIgnoreCase("Todos")) {
+                query = "select id_equipo, tipo_equipo, marca, status from equipos";
+            } else {
+                query = "select id_equipo, tipo_equipo, marca, status from equipos where status = '" + seleccion + "'";
+            }
             
             PreparedStatement pst = cn.prepareStatement(query);
             ResultSet rs = pst.executeQuery();
             
-            jTable_equipos = new jTable(model);
-            jScrollPane_equipos.setViewport(jTable_equipos);
+            jTable_equipos = new JTable(model);
+            jScrollPane_equipos.setViewportView(jTable_equipos);
             
+            model.addColumn(" ");
+            model.addColumn("Tipo");
+            model.addColumn("Marca");
+            model.addColumn("Estatus");
             
-        }   catch (Exception e){
+            while(rs.next()){
+                Object [] fila = new Object[4];
+                for (int i = 0; i < 4; i++) {
+                    fila[i] = rs.getObject(i + 1);
+                }
+                model.addRow(fila);
+            }
+            cn.close();
             
+        } catch (SQLException e) {
+            System.err.println("Error al recuperar los registros de equipos." + e);
         }
         
+        ObtenerDatosTabla();
         
     }//GEN-LAST:event_MostrarActionPerformed
 
@@ -228,9 +235,6 @@ public class GestionarEquipos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Mostrar;
     private javax.swing.JComboBox<String> cmb_estatus;
-    private javax.swing.JButton jButton_Registrar;
-    private javax.swing.JButton jButton_Registrar1;
-    private javax.swing.JButton jButton_Registrar2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel_Wallpaper;
     private javax.swing.JLabel jLabel_footer;
@@ -247,8 +251,8 @@ public class GestionarEquipos extends javax.swing.JFrame {
 
                 if (fila_point > -1) {
                     IDequipo_update = (int) model.getValueAt(fila_point, columna_point);
-                    Informacion_Cliente informacion_cliente = new Informacion_Cliente();
-                    informacion_cliente.setVisible(true);
+                    InformacionEquipoTecnico info = new InformacionEquipoTecnico();
+                    info.setVisible(true);
                 }
             }
         });

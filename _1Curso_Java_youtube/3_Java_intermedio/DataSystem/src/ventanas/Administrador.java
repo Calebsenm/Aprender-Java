@@ -189,8 +189,8 @@ public class Administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_CapturistaActionPerformed
 
     private void jButton_TecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_TecnicoActionPerformed
-        // TODO add your handling code here:
-        Tecnico tecnico =new Tecnico();
+        
+        Tecnico tecnico = new Tecnico();
         tecnico.setVisible(true);
         
     }//GEN-LAST:event_jButton_TecnicoActionPerformed

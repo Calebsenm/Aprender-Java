@@ -51,7 +51,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
         try {
             Connection cn = Conexion.conectar();
             PreparedStatement pst = cn.prepareStatement(
-                    "select id_usuario, nombre_usuario, username, tipo_nivel, estatus from usuarios");
+                    "select id_usuario, nombre_usuario, username, tipo_nivel, status from usuarios");
             
             ResultSet rs = pst.executeQuery();
             

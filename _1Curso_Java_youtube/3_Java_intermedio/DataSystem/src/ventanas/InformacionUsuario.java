@@ -63,7 +63,7 @@ public class InformacionUsuario extends javax.swing.JFrame {
                 txt_RegistradoPor.setText(rs.getString("registrado_por"));
                 
                 cmb_niveles.setSelectedItem(rs.getString("tipo_nivel"));
-                cmb_estatus.setSelectedItem(rs.getString("estatus"));
+                cmb_estatus.setSelectedItem(rs.getString("status"));
             }
             cn.close();
         } catch (SQLException e) {
@@ -287,7 +287,7 @@ public class InformacionUsuario extends javax.swing.JFrame {
                     
                     Connection cn2 = Conexion.conectar();
                     PreparedStatement pst2 = cn2.prepareStatement(
-                    "update usuarios set nombre_usuario=?, email=?, telefono=?, username=?, tipo_nivel=?, estatus=? "
+                    "update usuarios set nombre_usuario=?, email=?, telefono=?, username=?, tipo_nivel=?, status=? "
                             + "where id_usuario = '" + ID + "'");
                     
                     pst2.setString(1, nombre);
