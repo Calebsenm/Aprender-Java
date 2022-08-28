@@ -207,7 +207,85 @@ public class GraficarMarcas extends javax.swing.JFrame {
         
         int grados_acer = acer *360 / total_marcas;
         int grados_alienware = alienware *360 / total_marcas;
-        int grados_ace = acer *360 / total_marcas;
+        int grados_apple = apple *360 / total_marcas;
+        int grados_asus = asus * 360 / total_marcas;
+        int grados_brother =  brother * 360 / total_marcas;
+        int grados_dell = dell * 360 / total_marcas;
+        int grados_hp = hp * 360 / total_marcas;
+        int grados_lenovo = lenovo * 360 / total_marcas;
+        int grados_samsung = samsung * 360 / total_marcas;
+        int grados_toshiba = toshiba * 360 / total_marcas;
+        int grados_xeros = xeros * 360 / total_marcas;
+        
+        
+        //acer
+        g.setColor(new Color(175,122,197));//morado
+        g.fillArc(25, 100, 270, 270, 0, grados_acer);
+        g.fillRect(310, 120, 20, 20);
+        g.drawString(acer + "de acer",340,135);
+        
+        //aliemware
+        g.setColor(new Color(0,255,0));//verde
+        g.fillArc(25, 100, 270, 270, grados_acer , grados_alienware);
+        g.fillRect(310, 150, 20, 20);
+        g.drawString(alienware + "de aliemware",340,165);
+        
+        //apple
+        g.setColor(new Color(0,255,255));//verde agua
+        g.fillArc(25, 100, 270, 270, grados_acer + grados_alienware, grados_apple);
+        g.fillRect(310, 180, 20, 20);
+        g.drawString(apple + "de apple",340,195);
+        
+        
+        //azus
+        g.setColor(new Color(55,0,255));//verde agua
+        g.fillArc(25, 100, 270, 270, grados_acer + grados_alienware + grados_apple ,grados_asus );
+        g.fillRect(310, 210, 20, 20);
+        g.drawString(asus + "de asus",340,225);
+        
+        //brther
+        g.setColor(new Color(255,255,255));//verde agua
+        g.fillArc(25, 100, 270, 270, grados_acer + grados_alienware + grados_apple + grados_asus,grados_brother);
+        g.fillRect(310, 240, 20, 20);
+        g.drawString(brother + "de brother",340,255);
+        
+        
+        //dell 
+        g.setColor(new Color(247,220,111));//verde amarillo
+        g.fillArc(25, 100, 270, 270, grados_acer + grados_alienware + grados_apple + grados_asus +grados_brother,grados_dell);
+        g.fillRect(310, 270, 20, 20);
+        g.drawString(dell + "de dell",340,285);
+        
+         //hp
+        g.setColor(new Color(21,42,160));//verde amarillo
+        g.fillArc(25, 100, 270, 270, grados_acer + grados_alienware + grados_apple + grados_asus +grados_brother +grados_dell,grados_hp);
+        g.fillRect(310, 300, 20, 20);
+        g.drawString(hp + "de hp",340,315);
+        
+          //lenovo
+        g.setColor(new Color(215,96,0));//verde amarillo
+        g.fillArc(25, 100, 270, 270, grados_acer + grados_alienware + grados_apple + grados_asus +grados_brother +grados_dell + grados_hp,grados_lenovo);
+        g.fillRect(310, 330, 20, 20);
+        g.drawString(lenovo + "de lenovo",340,345);
+        
+        //samsung
+        g.setColor(new Color(215,96,140));//verde amarillo
+        g.fillArc(25, 100, 270, 270, grados_acer + grados_alienware + grados_apple + grados_asus +grados_brother +grados_dell + grados_hp +grados_lenovo,grados_samsung);
+        g.fillRect(430, 120, 20, 20);
+        g.drawString(samsung + "de samsung",440,135);
+        
+        
+        //toshiba
+        g.setColor(new Color(215,196,220));//verde amarillo
+        g.fillArc(25, 100, 270, 270, grados_acer + grados_alienware + grados_apple + grados_asus +grados_brother +grados_dell + grados_hp +grados_lenovo + grados_samsung ,grados_toshiba);
+        g.fillRect(430, 150, 20, 20);
+        g.drawString(toshiba + "de toshiba",440,165);
+        
+        //Xerox
+        g.setColor(new Color(93,173,226));//verde amarillo
+        g.fillArc(25, 100, 270, 270, grados_acer + grados_alienware + grados_apple + grados_asus +grados_brother +grados_dell + grados_hp +grados_lenovo + grados_samsung+grados_toshiba,grados_xeros);
+        g.fillRect(430, 180, 20, 20);
+        g.drawString(xeros + "de xeros",440,195);
     }
     
 }

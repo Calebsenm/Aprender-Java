@@ -134,6 +134,11 @@ public class Administrador extends javax.swing.JFrame {
         getContentPane().add(jButton_Tecnico, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 120, 100));
 
         jButton_AcercaDe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/geekipedia.png"))); // NOI18N
+        jButton_AcercaDe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_AcercaDeActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton_AcercaDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 240, 120, 100));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -194,6 +199,14 @@ public class Administrador extends javax.swing.JFrame {
         tecnico.setVisible(true);
         
     }//GEN-LAST:event_jButton_TecnicoActionPerformed
+
+    private void jButton_AcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AcercaDeActionPerformed
+        // TODO add your handling code here:
+        AcercaDe  acercaDe = new AcercaDe();
+        acercaDe.setVisible(true);
+        
+        
+    }//GEN-LAST:event_jButton_AcercaDeActionPerformed
 
     /**
      * @param args the command line arguments
