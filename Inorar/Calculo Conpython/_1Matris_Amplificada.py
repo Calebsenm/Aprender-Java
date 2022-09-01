@@ -32,4 +32,13 @@ while True:
         print()
 
 
+    Dict = {}
+    #primer paso convertir la primera fila a uno 
+    for i in range(Numero_Filas):
+        Dict[M[i][0]] = M[i]
+
+    print(Dict)
+
+
+
 
