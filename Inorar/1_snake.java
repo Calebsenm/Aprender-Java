@@ -3,6 +3,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 
 
+d
 
 public class snake {
     public static void main(String arg[]){
