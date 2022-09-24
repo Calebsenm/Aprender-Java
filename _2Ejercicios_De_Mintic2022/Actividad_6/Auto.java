@@ -16,10 +16,10 @@ public class Auto {
     public boolean NesecitaMantenimiento(){
         
         if(DiasDesdeUltimoMantenimiento >= 20){
-            System.out.print("Nesecita mantenimiento ");
+            // System.out.print("Nesecita mantenimiento ");
             return true;
         }else {
-            System.out.print("No Nesecita mantenimiento ");
+            // System.out.print("No Nesecita mantenimiento ");
             return false;
             
         }
@@ -28,10 +28,10 @@ public class Auto {
 
     public boolean SePuedeRentar(){
         if((TieneSeguro == true) && (DiasDesdeUltimoMantenimiento <= 20)){
-            System.out.print("Se puede rentar ");
+            // System.out.print("Se puede rentar ");
             LLave2 = true;
         }else{
-            System.out.print("NO Se puede rentar ");
+            // System.out.print("NO Se puede rentar ");
             LLave2 = false;
         }
         return LLave2;
