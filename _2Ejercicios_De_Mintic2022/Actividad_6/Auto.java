@@ -1,4 +1,3 @@
-package Actividad_3;
 
 public class Auto {
     private String Placa;
@@ -18,12 +17,13 @@ public class Auto {
         
         if(DiasDesdeUltimoMantenimiento >= 20){
             System.out.print("Nesecita mantenimiento ");
-            LLave = true;
+            return true;
         }else {
-            System.out.print("Nesecita mantenimiento ");
-            LLave = false;
+            System.out.print("No Nesecita mantenimiento ");
+            return false;
+            
         }
-        return LLave;
+        
     }
 
     public boolean SePuedeRentar(){
@@ -31,7 +31,7 @@ public class Auto {
             System.out.print("Se puede rentar ");
             LLave2 = true;
         }else{
-            System.out.print("Se puede rentar ");
+            System.out.print("NO Se puede rentar ");
             LLave2 = false;
         }
         return LLave2;
