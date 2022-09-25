@@ -11,10 +11,10 @@ import java.awt.event.*;
 
 public class Main extends JFrame  implements ActionListener{
 
-    JButton _3X3;
-    JButton _4X4;
-    JButton _5X5;
-    JButton _6X6;
+    public JButton _3X3;
+    public JButton _4X4;
+    public JButton _5X5;
+    public JButton _6X6;
 
     JLabel textField;
     public static int tamaño = 3;
@@ -71,7 +71,7 @@ public class Main extends JFrame  implements ActionListener{
         }
         else if (e.getSource() == _4X4){
             System.out.println("4x4");
-            System.out.println("3x3");
+            
             Jugar juego = new Jugar();
             juego.setVisible(true);
             tamaño = 4;
@@ -81,7 +81,7 @@ public class Main extends JFrame  implements ActionListener{
 
         else if (e.getSource() == _5X5){
             System.out.println("5x5");
-            System.out.println("3x3");
+          
             Jugar juego = new Jugar();
             juego.setVisible(true);
             tamaño = 5;
@@ -90,7 +90,6 @@ public class Main extends JFrame  implements ActionListener{
         }
         if (e.getSource() == _6X6){
             System.out.println("6x6");
-            System.out.println("3x3");
             Jugar juego = new Jugar();
             juego.setVisible(true);
             tamaño = 6;
