@@ -22,8 +22,8 @@ public class Clase_Verificar {
     int nuemro5 = 4;
     int nuemro6 = 5;
     int nuemro7 = 6;
-    int nuemro8 = 8;
-    int nuemro9 = 9;
+    int nuemro8 = 7;
+    int nuemro9 = 8;
 
     // the contructor
     public Clase_Verificar(String Tablero[]) {
@@ -181,11 +181,14 @@ public class Clase_Verificar {
 
     public void Postion_Zero() {
         for (int i = 0; i < Tablero.length; i++) {
+
+            
             if (Tablero[i] == " ") {
                 position_0 = i;
                 setNuemro9(i);
             }
             else if(Tablero[i] == "1"){
+
                 setNuemro1(i);
             }
             else if(Tablero[i] == "2"){
@@ -212,28 +215,37 @@ public class Clase_Verificar {
             
         }
 
+        position_0 += 1;
+
     }
 
     public void The_action() {
         if (position_0 == 0) {
 
         } else if (getZero() == 1) {
-            setLlave1(true);
+            setLlave2(true);
             setLlave4(true);
+
 
         } else if (getZero() == 2) {
             setLlave1(true);
             setLlave5(true);
-            setLlave2(true);
+            setLlave3(true);
+
+     
 
         } else if (getZero() == 3) {
             setLlave2(true);
-            setLlave3(true);
+            setLlave6(true);
+
+
 
         } else if (getZero() == 4) {
-            setLlave3(true);
+            setLlave1(true);
             setLlave5(true);
-            setLlave6(true);
+            setLlave7(true);
+
+        
 
         } else if (getZero() == 5) {
             setLlave2(true);
@@ -241,21 +253,42 @@ public class Clase_Verificar {
             setLlave8(true);
             setLlave6(true);
 
+        
+
+
         } else if (getZero() == 6) {
+
+            String numero1 = Tablero[2];
+            String numero2 = Tablero[4];
+            String numero3 = Tablero[8];
+
+
+
             setLlave3(true);
             setLlave5(true);
             setLlave9(true);
+           
+
+
+
         } else if (getZero() == 7) {
             setLlave4(true);
             setLlave8(true);
 
+        
+
         } else if (getZero() == 8) {
             setLlave5(true);
             setLlave7(true);
+            setLlave9(true);
+
+         
+
 
         } else if (getZero() == 9) {
             setLlave6(true);
             setLlave8(true);
+
         }
     }
 
