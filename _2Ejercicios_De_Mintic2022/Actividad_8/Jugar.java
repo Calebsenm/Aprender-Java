@@ -49,9 +49,11 @@ public class Jugar extends JFrame implements ActionListener {
     int posicionNueve_x = 150;
     int posicionNueve_y = 150;
 
+   
 
 
-    static int fichas[][] = new int[3][3];
+    String TABLERO[] = new String[9];
+
 
     public Jugar() {
     }
@@ -64,186 +66,227 @@ public class Jugar extends JFrame implements ActionListener {
         this.setResizable(false);
         this.setLocationRelativeTo(this);
 
+        for (int i = 0; i < TABLERO.length; i++) {
+            if(i<8){
+                 TABLERO[i] =String.valueOf(i+1);
+            }
+           
+        }
+        TABLERO[8] = " ";
+        
 
-        uno = new JButton(String.valueOf(fichas[0][0]));
+        uno = new JButton("1");
         uno.setBounds(50,50, 50, 50);
         uno.addActionListener(this);
         add(uno);
 
-        dos = new JButton(String.valueOf(fichas[0][1]));
+        dos = new JButton("2");
         dos.setBounds(100, 50, 50, 50);
         dos.addActionListener(this);
         add(dos);
 
-        tres = new JButton(String.valueOf(fichas[0][2]));
+        tres = new JButton("3");
         tres.setBounds(150, 50, 50, 50);
         tres.addActionListener(this);
         add(tres);
 
-        cuatro = new JButton(String.valueOf(fichas[1][0]));
+        cuatro = new JButton("4");
         cuatro.setBounds(50, 100, 50, 50);
         cuatro.addActionListener(this);
         add(cuatro);
 
-        cinco = new JButton(String.valueOf(fichas[1][1]));
+        cinco = new JButton("5");
         cinco.setBounds(100, 100, 50, 50);
         cinco.addActionListener(this);
         add(cinco);
 
-        seis = new JButton(String.valueOf(fichas[1][2]));
+        seis = new JButton("6");
         seis.setBounds(150, 100, 50, 50);
         seis.addActionListener(this);
         add(seis);
 
-        siete = new JButton(String.valueOf(fichas[2][0]));
+        siete = new JButton("7");
         siete.setBounds(50, 150, 50, 50);
         siete.addActionListener(this);
         add(siete);
 
-        ocho = new JButton(String.valueOf(fichas[2][1]));
+        ocho = new JButton("8");
         ocho.setBounds(100, 150, 50, 50);
         ocho.addActionListener(this);
         add(ocho);
 
-        nueve = new JButton(String.valueOf(fichas[2][2]));
+        nueve = new JButton(" ");
         nueve.setBounds(150, 150, 50, 50);
         nueve.addActionListener(this);
         nueve.setBackground(new Color(11, 34, 44));
         add(nueve);
 
+       
+
     }
 
     public static void main(String[] args) {
 
-        /* Create and display the form */
-        int iterator = 1;
 
-        for (int index = 0; index < fichas.length; index++) {
-            for (int i = 0; i < fichas.length; i++) {
-                fichas[index][i] = iterator;
-
-                iterator++;
-            }
-        }
-
-     
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Jugar(1).setVisible(true);
             }
         });
 
-        System.err.println();
-
+        
     }
-
- 
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        Clase_Verificar veri = new Clase_Verificar(TABLERO);
 
-        if (e.getSource() == uno) {
-            int auxiliar1 = getPosicionUno_x();
-            int auxiliar2 = getPosicionUno_y();
-
-            setPosicionUno_x(getPosicionNueve_x());
-            setPosicionUno_y(getPosicionNueve_y());
-            
-            setPosicionNueve_x(auxiliar1);
-            setPosicionNueve_y(auxiliar2);
+        if (e.getSource() == uno && veri.isLlave1() )  {
         
-            uno.setLocation(getPosicionUno_x(), getPosicionUno_y());
-            nueve.setLocation(getPosicionNueve_x(),getPosicionNueve_y());
 
+            int auX = posicionUno_x;
+            int auY = posicionDos_y;
+
+            posicionUno_x = posicionNueve_x;
+            posicionUno_y = posicionNueve_y;
+
+            posicionNueve_x  = auX;
+            posicionNueve_y  = auY;
+
+            uno.setLocation(posicionNueve_x,posicionNueve_y);
+            nueve.setLocation(posicionUno_x,posicionUno_y);
+
+            veri.setLlave1(false);
+            veri.setLlave4(false);
         }
 
-        if (e.getSource() == dos) {
-            int auxiliar1 = getPosicionDos_x();
-            int auxiliar2 = getPosicionDos_y();
-            System.out.println(getPosicionNueve_x());
-
-            setPosicionDos_x(getPosicionNueve_x());
-            setPosicionDos_y(getPosicionNueve_y());
-            
-            setPosicionNueve_x(auxiliar1);
-            setPosicionNueve_y(auxiliar2);
-        
-            System.out.println(getPosicionNueve_x());
-
-            dos.setLocation(getPosicionDos_x(), getPosicionDos_y());
-            nueve.setLocation(getPosicionNueve_x(),getPosicionNueve_y());
-        }
-
-        if (e.getSource() == tres) {
-
-           
-        }
-        if (e.getSource() == cuatro) {
-
-        }
-        if (e.getSource() == cinco) {
+        else if (e.getSource() == dos && veri.isLlave2()) {
          
+
+            int auX = posicionDos_x;
+            int auY = posicionDos_y;
+
+            posicionDos_x = posicionNueve_x;
+            posicionDos_y = posicionNueve_y;
+
+            posicionNueve_x  = auX;
+            posicionNueve_y  = auY;
+
+            dos.setLocation(posicionNueve_x,posicionNueve_y);
+            nueve.setLocation(posicionDos_x,posicionDos_y);
+
+            veri.setLlave1(false);
+            veri.setLlave5(false);
+            veri.setLlave2(false);
         }
-        if (e.getSource() == seis) {
+
+        else if (e.getSource() == tres && veri.isLlave3()) {
+
+            int auX = posicionTres_x;
+            int auY = posicionTres_y;
+
+            posicionTres_x = posicionNueve_x;
+            posicionTres_y = posicionNueve_y;
+
+            posicionNueve_x  = auX;
+            posicionNueve_y  = auY;
+
+            tres.setLocation(posicionNueve_x,posicionNueve_y);
+            nueve.setLocation(posicionTres_x,posicionTres_y);
+            
+            veri.setLlave2(false);
+            veri.setLlave3(false);
+
+        }
+        else if (e.getSource() == cuatro && veri.isLlave4()) {
+
+            int auX = posicionCuatro_x;
+            int auY = posicionCuatro_y;
+
+            posicionCuatro_x = posicionNueve_x;
+            posicionCuatro_y = posicionNueve_y;
+
+            posicionNueve_x  = auX;
+            posicionNueve_y  = auY;
+
+            cuatro.setLocation(posicionNueve_x,posicionNueve_y);
+            nueve.setLocation(posicionCuatro_x,posicionCuatro_y);
+
+            veri.setLlave3(false);
+            veri.setLlave5(false);
+            veri.setLlave6(false);
+
+        }
+        else if (e.getSource() == cinco && veri.isLlave5()) {
+            int auX = posicionCinco_x;
+            int auY = posicionCinco_y;
+
+            posicionCinco_x = posicionNueve_x;
+            posicionCinco_y = posicionNueve_y;
+
+            posicionNueve_x  = auX;
+            posicionNueve_y  = auY;
+
+            cinco.setLocation(posicionNueve_x,posicionNueve_y);
+            nueve.setLocation(posicionCinco_x,posicionCinco_y);
+
+            veri.setLlave2(false);
+            veri.setLlave4(false);
+            veri.setLlave8(false);
+            veri.setLlave6(false);
+
+        }
+        else if (e.getSource() == seis && veri.isLlave6()) {
       
+            int auX = posicionSeis_x;
+            int auY = posicionSeis_y;
+
+            posicionSeis_x = posicionNueve_x;
+            posicionSeis_y = posicionNueve_y;
+
+            posicionNueve_x  = auX;
+            posicionNueve_y  = auY;
+
+            seis.setLocation(posicionNueve_x,posicionNueve_y);
+            nueve.setLocation(posicionSeis_x,posicionSeis_y);
+
+            veri.setLlave3(false);
+            veri.setLlave5(false);
+            veri.setLlave9(false);
         }
-        if (e.getSource() == siete) {
+        else if (e.getSource() == siete && veri.isLlave7()) {
+            int auX = posicionSiete_x;
+            int auY = posicionSiete_y;
 
+            posicionSiete_x = posicionNueve_x;
+            posicionSiete_y = posicionNueve_y;
+
+            posicionNueve_x  = auX;
+            posicionNueve_y  = auY;
+
+            siete.setLocation(posicionNueve_x,posicionNueve_y);
+            nueve.setLocation(posicionSiete_x,posicionSiete_y);
+
+            veri.setLlave4(false);
+            veri.setLlave8(false);
         }
-        if (e.getSource() == ocho) {
-  
+        else if (e.getSource() == ocho && veri.isLlave8()) {
+            int auX = posicionOcho_x;
+            int auY = posicionOcho_y;
+
+            posicionOcho_x = posicionNueve_x;
+            posicionOcho_y = posicionNueve_y;
+
+            posicionNueve_x  = auX;
+            posicionNueve_y  = auY;
+
+            ocho.setLocation(posicionNueve_x,posicionNueve_y);
+            nueve.setLocation(posicionOcho_x,posicionOcho_y);
+
+            veri.setLlave4(false);
+            veri.setLlave8(false);
         }
 
-    }
-
-    public int getPosicionNueve_y() {
-        return posicionNueve_y;
-    }
-
-    public void setPosicionNueve_y(int Nueva_Posicion) {
-        this.posicionNueve_y = Nueva_Posicion;
-    }
-    public int getPosicionNueve_x() {
-        return posicionNueve_y;
-    }
-
-    public void setPosicionNueve_x(int Nueva_Posicion) {
-        this.posicionNueve_y = Nueva_Posicion;
-    }
-
-    public int getPosicionUno_y() {
-        return posicionUno_y;
-    }
-
-    public void setPosicionUno_y(int Nueva_Posicion) {
-        this.posicionUno_y = Nueva_Posicion;
-    }
-
-    public int getPosicionUno_x() {
-        return posicionUno_x;
-    }
-
-    public void setPosicionUno_x(int Nueva_Posicion) {
-        this.posicionUno_x = Nueva_Posicion;
-    }
-
-
-
-    
-    public int getPosicionDos_y() {
-        return posicionDos_y;
-    }
-
-    public void setPosicionDos_y(int Nueva_Posicion) {
-        this.posicionDos_y = Nueva_Posicion;
-    }
-
-    public int getPosicionDos_x() {
-        return posicionDos_x;
-    }
-
-    public void setPosicionDos_x(int Nueva_Posicion) {
-        this.posicionDos_x = Nueva_Posicion;
     }
 
 
