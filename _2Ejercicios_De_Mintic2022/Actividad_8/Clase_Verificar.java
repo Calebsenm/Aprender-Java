@@ -183,33 +183,33 @@ public class Clase_Verificar {
         for (int i = 0; i < Tablero.length; i++) {
 
             
-            if (Tablero[i] == " ") {
+            if (Tablero[i].equals(" ")){
                 position_0 = i;
                 setNuemro9(i);
             }
-            else if(Tablero[i] == "1"){
+            if(Tablero[i].equals("1")){
 
                 setNuemro1(i);
             }
-            else if(Tablero[i] == "2"){
+             if(Tablero[i].equals("2")){
                 setNumero2(i);
             }
-            else if(Tablero[i] == "3"){
+             if(Tablero[i].equals("3")){
                 setNumero3(i);
             }
-            else if(Tablero[i] == "4"){
+             if(Tablero[i].equals("4")){
                 setNuemro4(i);
             }
-            else if(Tablero[i] == "5"){
+             if(Tablero[i].equals("5")){
                 setNuemro5(i);
             }
-            else if(Tablero[i] == "6"){
+             if(Tablero[i].equals("6")){
                 setNuemro6(i);
             }
-            else if(Tablero[i] == "7"){
+            if(Tablero[i].equals("7")){
                 setNuemro7(i);
             }
-            else if(Tablero[i] == "8"){
+            if(Tablero[i].equals("8")){
                 setNuemro8(i);
             }
             
@@ -219,75 +219,267 @@ public class Clase_Verificar {
 
     }
 
+    public void the_algoritmous_Maximous(){
+
+    }
+
+
     public void The_action() {
         if (position_0 == 0) {
 
         } else if (getZero() == 1) {
-            setLlave2(true);
-            setLlave4(true);
-
+        
+            if(Tablero[1].equals("1") || Tablero[3].equals("1")){
+                setLlave1(true);
+            }
+            if(Tablero[1].equals("2")|| Tablero[3].equals("2")){
+                setLlave2(true);
+            }
+            if(Tablero[1].equals("3")|| Tablero[3].equals("3")){
+                setLlave3(true);
+            }
+            if(Tablero[1].equals("4") || Tablero[3].equals("4")){
+                setLlave4(true);
+            }
+            if(Tablero[1].equals("5") || Tablero[3].equals("5")){
+                setLlave5(true);
+            }
+            if(Tablero[1].equals("6") || Tablero[3].equals("6")){
+                setLlave6(true);
+            }
+            if(Tablero[1].equals("7") || Tablero[3].equals("7")){
+                setLlave7(true);
+            }
+            if(Tablero[1].equals("8")|| Tablero[3].equals("8")){
+                setLlave8(true);
+            }
 
         } else if (getZero() == 2) {
-            setLlave1(true);
-            setLlave5(true);
-            setLlave3(true);
 
-     
+            if(Tablero[0].equals("1")|| Tablero[4].equals("1") || Tablero[2].equals("1")){
+                setLlave1(true);
+            }
+            if(Tablero[0] .equals("2") || Tablero[4].equals("2")|| Tablero[2].equals("2")){
+                setLlave2(true);
+            }
+            if(Tablero[0].equals("3") || Tablero[4].equals("3") || Tablero[2].equals("3")){
+                setLlave3(true);
+            }
+            if(Tablero[0].equals("4") || Tablero[4].equals("4") || Tablero[2].equals("4")){
+                setLlave4(true);
+            }
+            if(Tablero[0].equals("5") || Tablero[4].equals("5") || Tablero[2].equals("5")){
+                setLlave5(true);
+            }
+            if(Tablero[0].equals("6") || Tablero[4].equals("6") || Tablero[2].equals("6")){
+                setLlave6(true);
+            }
+            if(Tablero[0].equals("7") || Tablero[4].equals("7") || Tablero[2].equals("7")){
+                setLlave7(true);
+            }
+            if(Tablero[0].equals("8") || Tablero[4].equals("8") || Tablero[2].equals("8")){
+                setLlave8(true);
+            }
 
         } else if (getZero() == 3) {
-            setLlave2(true);
-            setLlave6(true);
+            if(Tablero[1].equals("1") || Tablero[1] .equals("1") || Tablero[5] .equals("1") ){
+                setLlave1(true);
+            }
+            if(Tablero[1].equals("2") || Tablero[1] .equals("2") || Tablero[5] .equals("2") ){
+                setLlave2(true);
+            }
+            if(Tablero[1].equals("3") || Tablero[1] .equals("3") || Tablero[5] .equals("3") ){
+                setLlave3(true);
+            }
+            if(Tablero[1].equals("4") || Tablero[1] .equals("4") || Tablero[5] .equals("4") ){
+                setLlave4(true);
+            }
+            if(Tablero[1].equals("5") || Tablero[1] .equals("5") || Tablero[5] .equals("5") ){
+                setLlave5(true);
+            }
+            if(Tablero[1].equals("6") || Tablero[1] .equals("6") || Tablero[5] .equals("6") ){
+                setLlave6(true);
+            }
+            if(Tablero[1].equals("7") || Tablero[1] .equals("7") || Tablero[5] .equals("7")) {
+                setLlave7(true);
+            }
+            if(Tablero[1].equals("8") || Tablero[1] .equals("8") || Tablero[5] .equals("8") ){
+                setLlave8(true);
+            }
 
 
 
         } else if (getZero() == 4) {
-            setLlave1(true);
-            setLlave5(true);
-            setLlave7(true);
-
+            if(Tablero[0].equals("1") || Tablero[4].equals("1") || Tablero[6].equals("1") ){
+                setLlave1(true);
+            }
+            if(Tablero[0].equals("2") || Tablero[4].equals("2") || Tablero[6].equals("2") ){
+                setLlave2(true);
+            }
+            if(Tablero[0].equals("3") || Tablero[4].equals("3") || Tablero[6].equals("3") ){
+                setLlave3(true);
+            }
+            if(Tablero[0].equals("4") || Tablero[4].equals("4") || Tablero[6].equals("4") ){
+                setLlave4(true);
+            }
+            if(Tablero[0].equals("5") || Tablero[4].equals("5") || Tablero[6].equals("5") ){
+                setLlave5(true);
+            }
+            if(Tablero[0].equals("6") || Tablero[4].equals("6") || Tablero[6].equals("6") ){
+                setLlave6(true);
+            }
+            if(Tablero[0].equals("7") || Tablero[4].equals("7") || Tablero[6].equals("7") ){
+                setLlave7(true);
+            }
+            if(Tablero[0].equals("8") || Tablero[4].equals("8") || Tablero[6].equals("8") ){
+                setLlave8(true);
+            }
         
 
         } else if (getZero() == 5) {
-            setLlave2(true);
-            setLlave4(true);
-            setLlave8(true);
-            setLlave6(true);
+
+            if(Tablero[1].equals("1")|| Tablero[3].equals("1")|| Tablero[5].equals("1")|| Tablero[7].equals("1")){
+                setLlave1(true);
+            }
+            if(Tablero[1].equals("2")|| Tablero[3].equals("2")|| Tablero[5].equals("2")|| Tablero[7].equals("2")){
+                setLlave2(true);
+            }
+            if(Tablero[1].equals("3")|| Tablero[3].equals("3")|| Tablero[5].equals("3")|| Tablero[7].equals("3")){
+                setLlave3(true);
+            }
+            if(Tablero[1].equals("4")|| Tablero[3].equals("4")|| Tablero[5].equals("4")|| Tablero[7].equals("4")){
+                setLlave4(true);
+            }
+            if(Tablero[1].equals("5")|| Tablero[3].equals("5")|| Tablero[5].equals("5")|| Tablero[7].equals("5")){
+                setLlave5(true);
+            }
+            if(Tablero[1].equals("6")|| Tablero[3].equals("6")|| Tablero[5].equals("6")|| Tablero[7].equals("6")){
+                setLlave6(true);
+            }
+            if(Tablero[1].equals("7")|| Tablero[3].equals("7")|| Tablero[5].equals("7")|| Tablero[7].equals("7")){
+                setLlave7(true);
+            }
+            if(Tablero[1].equals("8")|| Tablero[3].equals("8")|| Tablero[5].equals("8")|| Tablero[7].equals("8")){
+                setLlave8(true);
+            }
 
         
 
 
         } else if (getZero() == 6) {
 
-            String numero1 = Tablero[2];
-            String numero2 = Tablero[4];
-            String numero3 = Tablero[8];
+            if(Tablero[2].equals("1")|| Tablero[2].equals("1")|| Tablero[4].equals("1")|| Tablero[8].equals("1")){
+                setLlave1(true);
+            }
+            if(Tablero[2].equals("2")|| Tablero[2].equals("2")|| Tablero[4].equals("2")|| Tablero[8].equals("2")){
+                setLlave2(true);
+            }
+            if(Tablero[2].equals("3")|| Tablero[2].equals("3")|| Tablero[4].equals("3")|| Tablero[8].equals("3")){
+                setLlave3(true);
+            }
+            if(Tablero[2].equals("4")|| Tablero[2].equals("4")|| Tablero[4].equals("4")|| Tablero[8].equals("4")){
+                setLlave4(true);
+            }
+            if(Tablero[2].equals("5")|| Tablero[2].equals("5")|| Tablero[4].equals("5")|| Tablero[8].equals("5")){
+                setLlave5(true);
+            }
+            if(Tablero[2].equals("6")|| Tablero[2].equals("6")|| Tablero[4].equals("6")|| Tablero[8].equals("6")){
+                setLlave6(true);
+            }
+            if(Tablero[2].equals("7")|| Tablero[2].equals("7")|| Tablero[4].equals("7")|| Tablero[8].equals("7")){
+                setLlave7(true);
+            }
+            if(Tablero[2].equals("8")|| Tablero[2].equals("8")|| Tablero[4].equals("8")|| Tablero[8].equals("8")){
+                setLlave8(true);
+            }
 
-
-
-            setLlave3(true);
-            setLlave5(true);
-            setLlave9(true);
-           
 
 
 
         } else if (getZero() == 7) {
-            setLlave4(true);
-            setLlave8(true);
+            if(Tablero[3].equals("1") || Tablero[3].equals("1")|| Tablero[6].equals("1")|| Tablero[7].equals("1")){
+                setLlave1(true);
+            }
+            if(Tablero[3].equals("2") || Tablero[3].equals("2")|| Tablero[6].equals("2")|| Tablero[7].equals("2")){
+                setLlave2(true);
+            }
+            if(Tablero[3].equals("3") || Tablero[3].equals("3")|| Tablero[6].equals("3")|| Tablero[7].equals("3")){
+                setLlave3(true);
+            }
+            if(Tablero[3].equals("4") || Tablero[3].equals("4")|| Tablero[6].equals("4")|| Tablero[7].equals("4")){
+                setLlave4(true);
+            }
+            if(Tablero[3].equals("5") || Tablero[3].equals("5")|| Tablero[6].equals("5")|| Tablero[7].equals("5")){
+                setLlave5(true);
+            }
+            if(Tablero[3].equals("6") || Tablero[3].equals("6")|| Tablero[6].equals("6")|| Tablero[7].equals("6")){
+                setLlave6(true);
+            }
+            if(Tablero[3].equals("7") || Tablero[3].equals("7")|| Tablero[6].equals("7")|| Tablero[7].equals("7")){
+                setLlave7(true);
+            }
+            if(Tablero[3].equals("8") || Tablero[3].equals("8")|| Tablero[6].equals("8")|| Tablero[7].equals("8")){
+                setLlave8(true);
+            }
+
+
 
         
 
         } else if (getZero() == 8) {
-            setLlave5(true);
-            setLlave7(true);
-            setLlave9(true);
+            if(Tablero[4].equals("1")|| Tablero[6].equals("1") || Tablero[8].equals("1")|| Tablero[8].equals("1")){
+                setLlave1(true);
+            }
+            if(Tablero[4].equals("2")|| Tablero[6].equals("2") || Tablero[8].equals("2")|| Tablero[8].equals("2")){
+                setLlave2(true);
+            }
+            if(Tablero[4].equals("3")|| Tablero[6].equals("3") || Tablero[8].equals("3")|| Tablero[8].equals("3")){
+                setLlave3(true);
+            }
+            if(Tablero[4].equals("4")|| Tablero[6].equals("4") || Tablero[8].equals("4")|| Tablero[8].equals("4")){
+                setLlave4(true);
+            }
+            if(Tablero[4].equals("5")|| Tablero[6].equals("5") || Tablero[8].equals("5")|| Tablero[8].equals("5")){
+                setLlave5(true);
+            }
+            if(Tablero[4].equals("6")|| Tablero[6].equals("6") || Tablero[8].equals("6")|| Tablero[8].equals("6")){
+                setLlave6(true);
+            }
+            if(Tablero[4].equals("7")|| Tablero[6].equals("7") || Tablero[8].equals("7")|| Tablero[8].equals("7")){
+                setLlave7(true);
+            }
+            if(Tablero[4].equals("8")|| Tablero[6].equals("8") || Tablero[8].equals("8")|| Tablero[8].equals("8")){
+                setLlave8(true);
+            }
 
          
 
 
         } else if (getZero() == 9) {
-            setLlave6(true);
-            setLlave8(true);
+            if(Tablero[5].equals("1")|| Tablero[7].equals("1")|| Tablero[7].equals("1")|| Tablero[5].equals("1")){
+                setLlave1(true);
+            }
+            if(Tablero[5].equals("2")|| Tablero[7].equals("2")|| Tablero[7].equals("2")|| Tablero[5].equals("2")){
+                setLlave2(true);
+            }
+            if(Tablero[5].equals("3")|| Tablero[7].equals("3")|| Tablero[7].equals("3")|| Tablero[5].equals("3")){
+                setLlave3(true);
+            }
+            if(Tablero[5].equals("4")|| Tablero[7].equals("4")|| Tablero[7].equals("4")|| Tablero[5].equals("4")){
+                setLlave4(true);
+            }
+            if(Tablero[5].equals("5")|| Tablero[7].equals("5") || Tablero[7].equals("5")|| Tablero[5].equals("5")){
+                setLlave5(true);
+            }
+            if(Tablero[5].equals("6")|| Tablero[7].equals("6") || Tablero[7].equals("6")|| Tablero[5].equals("6")){
+                setLlave6(true);
+            }
+            if(Tablero[5].equals("7") || Tablero[7].equals("7") || Tablero[7].equals("7")|| Tablero[5].equals("7")){
+                setLlave7(true);
+            }
+            if(Tablero[5].equals("8")|| Tablero[7].equals("8") || Tablero[7].equals("8")|| Tablero[5].equals("8")){
+                setLlave8(true);
+            }
 
         }
     }

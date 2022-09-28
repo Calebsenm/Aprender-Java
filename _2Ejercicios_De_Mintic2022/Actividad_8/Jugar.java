@@ -142,12 +142,15 @@ public class Jugar extends JFrame implements ActionListener {
         Clase_Verificar veri = new Clase_Verificar(TABLERO);
 
         if (e.getSource() == uno && veri.isLlave1()) {
+
+
             String b = TABLERO[veri.nuemro1];
             TABLERO[veri.nuemro1] = TABLERO[veri.nuemro9];
             TABLERO[veri.nuemro9] = b;
 
+
             int auX = posicionUno_x;
-            int auY = posicionDos_y;
+            int auY = posicionUno_y;
 
             posicionUno_x = posicionNueve_x;
             posicionUno_y = posicionNueve_y;
@@ -157,6 +160,7 @@ public class Jugar extends JFrame implements ActionListener {
 
             nueve.setLocation(posicionNueve_x, posicionNueve_y);
             uno.setLocation(posicionUno_x, posicionUno_y);
+           
 
 
         }
