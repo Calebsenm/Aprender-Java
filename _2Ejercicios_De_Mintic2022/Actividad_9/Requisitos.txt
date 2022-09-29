@@ -1,0 +1,79 @@
+la clase
+
+                  Auto
+_____________________________________________________
+-Placa: String
+-DiasDesdeUltimoMantenimiento: int
+-TieneSeguro: bolean
+-----------------------------------------------------
++SePuedeRentar(): bolean
++NecesitaManteniemiento():bolean
+
+
+requisitos
+
+1 -------------------------------------------------------
+la funcion NecesitaManteniemiento debe retornar verdadero 
+en caso de que hayan pasado mas de 20 dias dede el ultimo
+mantenimiento, de lo contrario retornar falso
+
+2 -------------------------------------------------------
+La funcion SePuedeRentar valida si un veiculo puede ser al-
+quilado y retorna verdadero si cumple con las siguientes 
+condiciones:
+
+- El Auto TieneSeguro, es decir, la propiedadTiene seguro de
+la istancia de auto tiene como valor verdadero.
+
+- El auto No NecesitaManteniemiento
+
+- En caso de que cualquiera de estas consiciones no se cunpla
+debe retornar falso
+
+-------------------------------------------------------------
+casos de prueva
+-------------------------------------------------------------
+NecesitaManteniemiento()    
+datos de entrada    Placa: ADK847
+                    DiasDesdeUltimoMantenimiento: 25
+                    TieneSeguro: true
+-------------------------------------------------------------
+SePuedeRentar()    
+datos de entrada    Placa: GYZ175
+                    DiasDesdeUltimoMantenimiento: 2
+                    TieneSeguro: flase
+-------------------------------------------------------------
+SePuedeRentar()    
+datos de entrada    Placa: FAT324
+                    DiasDesdeUltimoMantenimiento: 20
+                    TieneSeguro: false
+-------------------------------------------------------------
+
+SePuedeRentar()     
+datos de entrada    Placa: ADK847
+                    DiasDesdeUltimoMantenimiento: 25
+                    TieneSeguro: true
+-------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
