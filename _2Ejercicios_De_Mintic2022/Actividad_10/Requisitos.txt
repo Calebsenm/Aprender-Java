@@ -1,0 +1,20 @@
+Acciones de aprendizaje
+1. Aprende sobre el patrón MVC con XACA RANA. (2021). 38 - Curso Programación JAVA - Modelo Vista Controlador. [Video]
+
+
+2. Realiza el diagrama de clases y el diagrama de casos de uso de un software para llevar 
+el control de cuentas en un bar, tenga presente que hay varios roles, meseros, cajeros, 
+administrador y clientes. Puedes realizar el diagrama en una hoja de papel.
+
+3. Dibuja las ventanas o vistas que debería tener el software diseñado en la 
+anterior acción, puedes hacer esto en una hoja de papel. El diseño de la interfaz 
+debe tener como mínimo 10 vistas o ventanas e incluir, login, registro, recordar 
+contraseña, administrador de mesas, vista de cuenta. Las otras 5 vistas se crearan 
+a partir del análisis de cada estudiante.
+
+4. Usando Diagram cree la versión digital de los diagramas y de las vistas.
+
+5. Comparte el digráma y las vistas de la interfaz diseñada en foro: Mi primera interfaz, 
+incluyendo fotos de los diseños manuales y el resultado digital final.
+
+6. Recuerda realizar la entrega Reto 3.
