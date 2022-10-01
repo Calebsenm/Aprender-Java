@@ -90,4 +90,29 @@ public class Alquiler {
 
       
     }
+
+    public static boolean PuedeAlquilar(Alquiler[]historial,Cliente cliente){
+        
+        boolean iterador = true;
+        int contador= 0 ;
+        
+        String cedula;
+
+        for (int i=0;i < historial.length-1;i++){
+          for( int j = i+1; j<historial.length;j++){
+              if (historial[i]== historial[j]){
+                  contador = contador + 1;
+              }
+          }
+        }
+        if (contador >=3){
+            iterador = false;
+        }
+            else{
+                iterador = true;
+            }
+        
+        return iterador;
+        
+    }
 }

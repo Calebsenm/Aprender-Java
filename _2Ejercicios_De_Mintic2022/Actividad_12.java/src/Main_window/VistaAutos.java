@@ -143,22 +143,22 @@ public class VistaAutos extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        // jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel_PLaca.setText("PLaca: ");
-        jPanel4.add(jLabel_PLaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 30));
+        // jLabel_PLaca.setText("PLaca: ");
+        // jPanel4.add(jLabel_PLaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 30));
 
-        NEsecitaMantenimiento.setText("Nesecita Mantenimiento:");
-        jPanel4.add(NEsecitaMantenimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 230, 20));
+        // NEsecitaMantenimiento.setText("Nesecita Mantenimiento:");
+        // jPanel4.add(NEsecitaMantenimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 230, 20));
 
-        jLabel_mantenimiento.setText("Dias desde ultimo Mantenimiento:");
-        jPanel4.add(jLabel_mantenimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 230, -1));
+        // jLabel_mantenimiento.setText("Dias desde ultimo Mantenimiento:");
+        // jPanel4.add(jLabel_mantenimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 230, -1));
 
-        jLabel_Seguro.setText("Tiene seguro:");
-        jPanel4.add(jLabel_Seguro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 240, 30));
+        // jLabel_Seguro.setText("Tiene seguro:");
+        // jPanel4.add(jLabel_Seguro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 240, 30));
 
-        jLabelRentar.setText("Se Puede Rentar:");
-        jPanel4.add(jLabelRentar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 116, 230, 20));
+        // jLabelRentar.setText("Se Puede Rentar:");
+        // jPanel4.add(jLabelRentar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 116, 230, 20));
 
         jLabel2.setText("Consultar auto");
 
