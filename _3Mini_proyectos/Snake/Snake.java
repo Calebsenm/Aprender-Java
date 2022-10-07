@@ -1,27 +1,20 @@
 import java.awt.Color;
 import java.awt.Graphics;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.Painter;
+import javax.swing.JOptionPane;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Random;
-import java.awt.EventQueue;
 import java.awt.event.*;
-import javax.swing.*;
-import org.w3c.dom.css.RGBColor;
 
-public class Logica extends JFrame implements KeyListener {
+public class Snake extends JFrame implements ActionListener, KeyListener {
+
+    int puntaje;
 
     String tablero[][] = new String[20][20];
-
+    JButton Cerrar;
     Random Ram = new Random();
-    // int AY = Ram.nextInt(19);
-    // int AX = Ram.nextInt(19);
 
     int Y = 0;
     int X = 0;
@@ -32,14 +25,14 @@ public class Logica extends JFrame implements KeyListener {
     int AY = Ram.nextInt(19);
     int AX = Ram.nextInt(19);
 
-    public Logica() {
+    public Snake() {
+
+        setLayout(null);
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero.length; j++) {
                 this.tablero[i][j] = " ";
             }
         }
-        setLayout(null);
-
         this.setResizable(false);
         this.setBounds(0, 0, 510, 510);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -47,13 +40,17 @@ public class Logica extends JFrame implements KeyListener {
         this.setVisible(true);
         this.addKeyListener(this);
 
+        Cerrar = new JButton("Regresar");
+        Cerrar.setBounds(300, 420, 100, 40);
+        Cerrar.addActionListener(this);
+
         Jugando();
 
     }
 
     public static void main(String[] args) {
         /* Create and display the form */
-        Logica a = new Logica();
+        Snake a = new Snake();
 
     }
 
@@ -86,8 +83,6 @@ public class Logica extends JFrame implements KeyListener {
 
         Cuerpo_Y.add(Y);
         Cuerpo_X.add(X);
-        
-
 
         // this if for the body and the position of the snake
 
@@ -107,13 +102,27 @@ public class Logica extends JFrame implements KeyListener {
                 X -= 1;
             }
 
+            try {
+                if (tablero[Y][X] == "0") {
+                    super.dispose();
 
+                    JOptionPane.showMessageDialog(null, "Has Perdido tu puntaje es : " + puntaje);
 
-            if (tablero[Y][X] == "0") {
-                System.out.print("Se Murió");
-               System.exit(0);
+                    main A = new main();
+                    A.setVisible(true);
+
+                    break;
+                }
+            } catch (Exception e) {
+
+                super.dispose();
+                JOptionPane.showMessageDialog(null, "Has Perdido tu puntaje es : " + puntaje);
+
+                main A = new main();
+                A.setVisible(true);
+
+                break;
             }
-
 
             if (tablero[Y][X] == "+") {
                 AY = Ram.nextInt(19);
@@ -123,17 +132,12 @@ public class Logica extends JFrame implements KeyListener {
                 Cuerpo_X.add(X);
 
                 tablero[Y][X] = "0";
-
+                puntaje += 1;
             }
 
-            
-
-
             this.tablero[Y][X] = "0";
-            
-            this.tablero[AY][AX] = "+";
 
-            
+            this.tablero[AY][AX] = "+";
 
             System.out.println();
 
@@ -162,10 +166,24 @@ public class Logica extends JFrame implements KeyListener {
             tablero[Historial_Y.get(0)][Historial_X.get(0)] = " ";
 
             try {
-                Thread.sleep(200);
+                Thread.sleep(30);
             } catch (Exception e) {
                 // TODO: handle exception
             }
+
+        }
+
+    }
+
+    // this is for close the window
+    @Override
+    public void actionPerformed(ActionEvent ee) {
+        // TODO Auto-generated method stub
+        if (ee.getSource() == Cerrar) {
+
+            super.dispose();
+            main A = new main();
+            A.setVisible(true);
 
         }
 
@@ -217,21 +235,29 @@ public class Logica extends JFrame implements KeyListener {
 
         super.paint(g);
 
+        g.setColor(new Color(0, 0, 0));
+        g.fillRect(0, 0, 510, 510);
+
+        g.setColor(new Color(255, 255, 255));
         g.drawRect(60, 40, 400, 400);
+        g.drawString("Este Juego Fue Creado por caleb ", 180, 470);
+
+        g.setColor(new Color(255, 255, 255));
+        g.drawRect(60, 40, 400, 400);
+        g.drawString("Tu puntage es " + puntaje, 60, 470);
 
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero.length; j++) {
 
                 if (tablero[i][j] == "0") {
-                    g.setColor(new Color(255, 0, 0));
+                    g.setColor(new Color(0, 150, 50));
                     g.fillRect((j * 20) + 60, (i * 20) + 40, 20, 20);
 
                 }
 
                 else if (tablero[i][j] == "+") {
-                    g.setColor(new Color(123, 6, 55));
+                    g.setColor(new Color(255, 10, 10));
                     g.fillRect((j * 20) + 60, (i * 20) + 40, 20, 20);
-                    g.drawString("Este Juego Fue Creado por caleb ", 100, 470);
                 }
 
             }
