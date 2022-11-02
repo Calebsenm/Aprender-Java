@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JButton;
@@ -259,7 +269,7 @@ public class Snake extends JFrame implements ActionListener, KeyListener {
             for (int j = 0; j < tablero.length; j++) {
 
                 if (tablero[i][j] == "0") {
-                    g.setColor(new Color(0, 150, 10));
+                    g.setColor(new Color(0, 150, 50));
                     g.fillRect((j * 20) + 60, (i * 20) + 40, 20, 20);
 
                 }
@@ -276,3 +286,6 @@ public class Snake extends JFrame implements ActionListener, KeyListener {
     }
 
 }
+
+</body>
+</html>

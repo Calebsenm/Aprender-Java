@@ -15,11 +15,14 @@ import java.awt.event.*;
 import javax.swing.*;
 import org.w3c.dom.css.RGBColor;
 
-public class main  extends JFrame implements ActionListener{
+public class main  extends JFrame implements ActionListener {
 
     JButton boton1;
     JButton boton2;
     JButton boton3;
+    Snake vista = new Snake();
+
+   
 
     public main(){
         setLayout(null);
@@ -29,6 +32,8 @@ public class main  extends JFrame implements ActionListener{
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+   
+
 
 
         // botones
@@ -55,10 +60,14 @@ public class main  extends JFrame implements ActionListener{
     public static void main(String[] args) {
 
         main ventana = new main();
+     
        
     
     }
 
+    /* (non-Javadoc)
+     * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
@@ -67,16 +76,16 @@ public class main  extends JFrame implements ActionListener{
 
 
             super.dispose();
-            Snake vista = new Snake();
-            
-        
+            vista.Inicio_Juego();
+            vista.setVisible(false);
+           
 
 
         }   else if (e.getSource() == boton2){
 
             super.dispose();
             V_puntajes puntajes = new V_puntajes();
-            puntajes.setVisible(true);
+            puntajes.setVisible(false);
 
 
 
@@ -89,7 +98,5 @@ public class main  extends JFrame implements ActionListener{
         }
         
     }
-    
-
     
 }
